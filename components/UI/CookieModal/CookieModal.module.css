@@ -1,0 +1,11 @@
+.modal {
+    @apply fixed bottom-0 left-0 w-full items-center flex justify-center;
+}
+
+.modalContent {
+    @apply flex-1 py-4 px-6 bg-black text-white justify-center flex items-center flex-wrap gap-4;
+}
+
+.button {
+    @apply text-white hover:text-black border-white;
+}

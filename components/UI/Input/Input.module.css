@@ -1,0 +1,11 @@
+.input {
+    @apply px-4 py-2 border-2 rounded-lg text-base max-w-xs w-screen;
+}
+
+.input:not(:placeholder-shown) + .label {
+    @apply bg-white translate-y-[-50%] opacity-100;
+}
+
+.label {
+    @apply left-4 absolute top-0 opacity-0 transition-all;
+}

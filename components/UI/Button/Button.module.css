@@ -1,0 +1,19 @@
+.button {
+    @apply text-base font-semibold uppercase text-center py-2 max-w-xs min-w-fit px-4 w-full rounded-lg transition-all cursor-pointer;
+}
+
+.button_transparent {
+    @apply border-2 bg-transparent text-slate-800 hover:bg-white;
+}
+
+.button_black {
+    @apply bg-black text-gray-100 hover:text-white hover:bg-slate-700;
+}
+
+.button_link {
+    @apply text-slate-800 w-auto hover:text-slate-900;
+}
+
+.disabled {
+    @apply bg-slate-700 cursor-default;
+}

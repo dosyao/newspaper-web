@@ -1,0 +1,32 @@
+.title {
+    @apply font-bold text-6xl text-center lg:text-8xl;
+
+    -webkit-text-fill-color: transparent;
+    background: rgb(131,58,180);
+    background: -webkit-linear-gradient(153deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    background-clip: text;
+}
+
+.blackSection {
+    @apply bg-black text-white flex justify-center w-full;
+}
+
+.blackWrapper {
+    @apply px-5 py-10 max-w-3xl w-full space-y-3 md:px-10 md:py-20 md:space-y-10;
+}
+
+.cardsSection {
+    @apply px-5 py-10 space-y-3 max-w-7xl mx-auto md:space-y-10 md:py-20;
+}
+
+.cards {
+    @apply flex flex-wrap gap-5 justify-center;
+}
+
+.label {
+    @apply text-2xl font-bold md:text-4xl md:text-center;
+}
+
+.text {
+    @apply text-base text-justify md:text-center md:text-lg;
+}
