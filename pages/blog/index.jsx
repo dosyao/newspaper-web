@@ -2,111 +2,116 @@ import { createContext } from "react";
 import BlogComponent from "../../components/BlogComponent";
 import { loadCategories } from "../../api/blog";
 
-export const posts = [{
-    "title": "New card",
-    "description": "Some text for card and nothing else",
-    "image": {
-        "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
-        "width": 384,
-        "height": 160,
-        "alt": "new card"
-    },
-    "author": "",
-    "slug": "new-card"
-}, {
-    "title": "New card",
-    "description": "Some text for card and nothing else",
-    "image": {
-        "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
-        "width": 384,
-        "height": 160,
-        "alt": "new card"
-    },
-    "author": "",
-    "slug": "new-card"
-}, {
-    "title": "New card",
-    "description": "Some text for card and nothing else",
-    "image": {
-        "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
-        "width": 384,
-        "height": 160,
-        "alt": "new card"
-    },
-    "author": "",
-    "slug": "new-card"
-}, {
-    "title": "New card",
-    "description": "Some text for card and nothing else",
-    "image": {
-        "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
-        "width": 384,
-        "height": 160,
-        "alt": "new card"
-    },
-    "author": "",
-    "slug": "new-card"
-}, {
-    "title": "New card",
-    "description": "Some text for card and nothing else",
-    "image": {
-        "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
-        "width": 384,
-        "height": 160,
-        "alt": "new card"
-    },
-    "author": "",
-    "slug": "new-card"
-}, {
-    "title": "New card",
-    "description": "Some text for card and nothing else",
-    "image": {
-        "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
-        "width": 384,
-        "height": 160,
-        "alt": "new card"
-    },
-    "author": "",
-    "slug": "new-card"
-}, {
-    "title": "New card",
-    "description": "Some text for card and nothing else",
-    "image": {
-        "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
-        "width": 384,
-        "height": 160,
-        "alt": "new card"
-    },
-    "author": "",
-    "slug": "new-card"
-}, {
-    "title": "New card",
-    "description": "Some text for card and nothing else",
-    "image": {
-        "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
-        "width": 384,
-        "height": 160,
-        "alt": "new card"
-    },
-    "author": "",
-    "slug": "new-card"
-}, {
-    "title": "New card",
-    "description": "Some text for card and nothing else",
-    "image": {
-        "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
-        "width": 384,
-        "height": 160,
-        "alt": "new card"
-    },
-    "author": "",
-    "slug": "new-card"
-}];
+export const postsData = {
+    total: 9,
+    totalPages: 1,
+    page: 1,
+    posts: [{
+        "title": "New card",
+        "description": "Some text for card and nothing else",
+        "image": {
+            "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+            "width": 384,
+            "height": 160,
+            "alt": "new card"
+        },
+        "author": "",
+        "slug": "new-card"
+    }, {
+        "title": "New card",
+        "description": "Some text for card and nothing else",
+        "image": {
+            "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+            "width": 384,
+            "height": 160,
+            "alt": "new card"
+        },
+        "author": "",
+        "slug": "new-card"
+    }, {
+        "title": "New card",
+        "description": "Some text for card and nothing else",
+        "image": {
+            "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+            "width": 384,
+            "height": 160,
+            "alt": "new card"
+        },
+        "author": "",
+        "slug": "new-card"
+    }, {
+        "title": "New card",
+        "description": "Some text for card and nothing else",
+        "image": {
+            "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+            "width": 384,
+            "height": 160,
+            "alt": "new card"
+        },
+        "author": "",
+        "slug": "new-card"
+    }, {
+        "title": "New card",
+        "description": "Some text for card and nothing else",
+        "image": {
+            "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+            "width": 384,
+            "height": 160,
+            "alt": "new card"
+        },
+        "author": "",
+        "slug": "new-card"
+    }, {
+        "title": "New card",
+        "description": "Some text for card and nothing else",
+        "image": {
+            "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+            "width": 384,
+            "height": 160,
+            "alt": "new card"
+        },
+        "author": "",
+        "slug": "new-card"
+    }, {
+        "title": "New card",
+        "description": "Some text for card and nothing else",
+        "image": {
+            "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+            "width": 384,
+            "height": 160,
+            "alt": "new card"
+        },
+        "author": "",
+        "slug": "new-card"
+    }, {
+        "title": "New card",
+        "description": "Some text for card and nothing else",
+        "image": {
+            "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+            "width": 384,
+            "height": 160,
+            "alt": "new card"
+        },
+        "author": "",
+        "slug": "new-card"
+    }, {
+        "title": "New card",
+        "description": "Some text for card and nothing else",
+        "image": {
+            "src": "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+            "width": 384,
+            "height": 160,
+            "alt": "new card"
+        },
+        "author": "",
+        "slug": "new-card"
+    }]
+};
 
 export const BlogStore = createContext();
 
-const BlogPage = (props) => (
-    <BlogStore.Provider value={props}>
+const BlogPage = ({ blogState }) => (
+    <BlogStore.Provider value={blogState}>
         <BlogComponent />
     </BlogStore.Provider>
 );
@@ -123,12 +128,16 @@ export const getStaticProps = async ({ params }) => {
         notFound: true
     }
 
+    const blogState = {
+        categories: categories ?? null,
+        selectedCategory: selectedCategory ?? null,
+        postsData: postsData
+    }
+
     return {
         revalidate: 3600,
         props: {
-            categories,
-            posts,
-            selectedCategory: selectedCategory ?? null
+            blogState
         }
     }
 }

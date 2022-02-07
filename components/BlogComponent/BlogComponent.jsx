@@ -4,14 +4,14 @@ import Card from "../UI/Card";
 import CategoriesBar from "./CategoriesBar";
 
 const BlogComponent = () => {
-    const { posts } = useBlog();
+    const { postsData } = useBlog();
 
     return (
         <MainLayout>
             <CategoriesBar />
             <main className="w-full max-w-7xl mx-auto">
                 <div className="w-full flex flex-wrap gap-5 p-5 mx-auto">
-                    {posts?.map(post => (
+                    {postsData?.total && postsData?.posts.map(post => (
                         <Card key={post.id} card={post} />
                     ))}
                 </div>
