@@ -2,24 +2,6 @@ import { createContext } from "react";
 import BlogComponent from "../../components/BlogComponent";
 import { loadCategories } from "../../api/blog";
 
-export const categories = [{
-    id: 1,
-    title: "title1",
-    slug: "title-1"
-}, {
-    id: 2,
-    title: "title2",
-    slug: "title-2"
-}, {
-    id: 3,
-    title: "title3",
-    slug: "title-3"
-}, {
-    id: 4,
-    title: "title4",
-    slug: "title-4"
-}];
-
 export const posts = [{
     "title": "New card",
     "description": "Some text for card and nothing else",
@@ -133,7 +115,9 @@ export default BlogPage;
 
 export const getStaticProps = async ({ params }) => {
     const categorySlug = params?.categorySlug;
+    const categories = await loadCategories();
     const selectedCategory = categories?.find(cat => cat.slug === categorySlug);
+    
 
     if (categorySlug && !selectedCategory) return {
         notFound: true

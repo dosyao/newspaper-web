@@ -31,7 +31,7 @@ const CategoriesBar = () => {
             <div className="flex px-5 py-3 justify-between w-full max-w-7xl mx-auto relative">
                 {!lg && (
                     <span className="text-md font-semibold flex items-center cursor-pointer" onClick={handleOpenCategories}>
-                        {selectedCategory?.title ?? "All"}
+                        {selectedCategory?.name ?? "All"}
                         <ChevronDownIcon className="w-5 h-5 lg:hidden" />
                     </span>
                 )}
@@ -46,7 +46,7 @@ const CategoriesBar = () => {
                         {categories.map(cat => (
                             <Link key={cat.slug} href={`/blog/category/${cat.slug}`}>
                                 <a className="text-md font-semibold flex w-full justify-between lg:justify-start lg:w-auto">
-                                    <span>{cat.title}</span> <CheckIcon className="w-5 h-5 lg:hidden" style={{ display: selectedCategory?.id !== cat.id && "none" }} />
+                                    <span>{cat.name}</span> <CheckIcon className="w-5 h-5 lg:hidden" style={{ display: selectedCategory?.id !== cat.id && "none" }} />
                                 </a>
                             </Link>
                         ))}
