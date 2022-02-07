@@ -27,7 +27,7 @@ const CategoriesBar = () => {
     }
 
     return (
-        <div className="w-full bg-black text-white min-h-[48px]">
+        <div className="w-full bg-black text-white min-h-[50px]">
             <div className="flex px-5 py-3 justify-between w-full max-w-7xl mx-auto relative">
                 {!lg && (
                     <span className="text-md font-semibold flex items-center cursor-pointer" onClick={handleOpenCategories}>
@@ -38,14 +38,14 @@ const CategoriesBar = () => {
                 {(isOpenCategories || lg) && (
                     <div className="flex flex-col space-y-3 absolute top-0 left-0 py-3 px-5 w-full bg-black transition-all lg:flex-row lg:space-y-0 lg:space-x-3">
                         <Link href={BLOG}>
-                            <a className="text-md font-semibold flex w-full justify-between lg:justify-start lg:w-auto">
+                            <a className={`text-md font-semibold flex w-full justify-between lg:justify-start lg:w-auto ${!selectedCategory && "lg:border-b-2 lg:border-b-white"}`}>
                                 <span>All</span>
                                 <CheckIcon className={`w-5 h-5 ${selectedCategory && "hidden"} lg:hidden`} />
                             </a>
                         </Link>
                         {categories.map(cat => (
                             <Link key={cat.slug} href={`/blog/category/${cat.slug}`}>
-                                <a className="text-md font-semibold flex w-full justify-between lg:justify-start lg:w-auto">
+                                <a className={`text-md font-semibold flex w-full justify-between lg:justify-start lg:w-auto ${selectedCategory?.id === cat.id && "lg:border-b-2 lg:border-b-white"}`}>
                                     <span>{cat.name}</span> <CheckIcon className="w-5 h-5 lg:hidden" style={{ display: selectedCategory?.id !== cat.id && "none" }} />
                                 </a>
                             </Link>
