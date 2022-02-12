@@ -50,6 +50,8 @@ const PostComponent = () => {
                             width={image.width}
                             height={image.height}
                             alt={image.alt}
+                            layout='responsive'
+                            sizes='(max-width: 576px) 100vw, (max-width: 1024px) 75vw, 632px'
                             priority
                         />
                     </div>
@@ -62,6 +64,8 @@ const PostComponent = () => {
                                     width={image.width}
                                     height={image.height}
                                     alt={image.alt}
+                                    layout='responsive'
+                                    sizes='(max-width: 576px) 100vw, (max-width: 1024px) 75vw, 632px'
                                 />
                             </div>
                         );
