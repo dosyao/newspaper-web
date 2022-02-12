@@ -18,7 +18,7 @@ const PostComponent = () => {
     const { image, content } = post.data;
 
     const prepareLink = (title) => {
-        return title.toLowerCase().trim().replaceAll(" ", "-");
+        return title.toLowerCase().trim().replace(/ /gi, "-");
     }
 
     return (
@@ -70,7 +70,7 @@ const PostComponent = () => {
                             <el.tag
                                 className={styles[el.tag]}
                                 key={el.content}
-                                id={el.tag === "h1" || el.tag === "h2" ? el.content.toLowerCase().trim().replaceAll(" ", "-") : null}
+                                id={el.tag === "h1" || el.tag === "h2" ? el.content.toLowerCase().trim().replace(/ /gi, "-") : null}
                                 dangerouslySetInnerHTML={{ __html: el.content }}
                             />
                         );
