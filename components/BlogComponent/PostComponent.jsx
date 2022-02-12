@@ -24,7 +24,8 @@ const PostComponent = () => {
     return (
         <main className="w-full max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row justify-center py-5 lg:py-10">
-                <ul className="p-0 space-y-2 hidden flex-col lg:flex">
+                <div className="p-0 space-y-2 hidden flex-col lg:flex">
+                    <h4 className="text-lg font-bold mb-1">Contents</h4>
                     {content.map(el => {
                         if (el.tag === "h1" || el.tag === "h2") return (
                             <Link href={`/blog/${query.postSlug}#${prepareLink(el.content)}`}>
@@ -39,7 +40,7 @@ const PostComponent = () => {
 
                         return null;
                     })}
-                </ul>
+                </div>
                 <section className="px-5 max-w-2xl">
                     <div className="relative mb-6 rounded-xl mx-auto">
                         <Image
@@ -75,23 +76,24 @@ const PostComponent = () => {
                         );
                     })}
                 </section>
-                <div className="flex lg:flex-col space-y-3">
+                <div className="flex lg:flex-col p-5 lg:p-0 lg:space-y-3 lg:space-x-0 space-x-3 flex-wrap items-center">
+                    <h4 className="w-screen lg:w-auto text-lg font-bold mb-5 lg:mb-1">Share</h4>
                     <FacebookShareButton
                         url={typeof window !== 'undefined' ? window.location.href : null}
                     >
-                        <FacebookIcon className="w-10 h-10 text-white bg-blue-500 rounded-full" />
+                        <FacebookIcon className="w-10 h-10 text-white rounded-full" />
                     </FacebookShareButton>
                     <ViberShareButton
                         title={post.title}
                         url={typeof window !== 'undefined' ? window.location.href : null}
                     >
-                        <ViberIcon className="w-10 h-10 text-white bg-purple-600 rounded-full" />
+                        <ViberIcon className="w-10 h-10 text-white rounded-full" />
                     </ViberShareButton>
                     <TelegramShareButton
                         title={post.title}
                         url={typeof window !== 'undefined' ? window.location.href : null}
                     >
-                        <TelegramIcon className="w-10 h-10 text-white bg-blue-400 rounded-full" />
+                        <TelegramIcon className="w-10 h-10 rounded-full" />
                     </TelegramShareButton>
                 </div>
             </div>
