@@ -3,12 +3,15 @@ import { useState } from "react";
 import Link from "next/link";
 import useDisplay from "../../../hooks/useDisplay";
 import Button from "../Button";
-import { HOME } from "../../../constants/routes";
+import { HOME, BLOG_POST } from "../../../constants/routes";
+import { useRouter } from "next/router";
 
 const Header = ({ setOpenModal }) => {
+    const { pathname } = useRouter();
     const [isOpen, setOpen] = useState(false);
     const Icon = isOpen ? XIcon : MenuIcon;
     const { lg } = useDisplay();
+    const shouldHeaderSticky = pathname !== BLOG_POST || !lg;
 
     const handleOpenModal = () => {
         setOpen(false);
@@ -16,7 +19,7 @@ const Header = ({ setOpenModal }) => {
     }
 
     return <>
-        <header className="sticky top-0 bg-white z-20 border-b-2">
+        <header className={`${shouldHeaderSticky && "sticky top-0"} bg-white z-20 border-b-2`}>
             <div className="flex justify-between px-4 py-4 lg:items-middle max-w-7xl w-full mx-auto">
                 <Link href={HOME}>
                     <a className="text-2xl lg:text-3xl font-bold lg:mr-10">

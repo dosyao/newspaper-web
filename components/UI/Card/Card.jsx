@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Card = ({ card, priority }) => {
-    const { title, description, image, author, slug } = card;
+    const { title, description, image, slug } = card;
 
     return (
         <Link href={`/blog/${slug}`}>

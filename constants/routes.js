@@ -5,3 +5,4 @@ export const CONTACT = "/contact";
 export const TERMS = "/terms";
 export const PRIVACY = "/privacy";
 export const BLOG = "/blog";
+export const BLOG_POST = "/blog/[postSlug]";
