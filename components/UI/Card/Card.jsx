@@ -7,7 +7,7 @@ const Card = ({ card, priority }) => {
     return (
         <Link href={`/blog/${slug}`}>
             <a className="flex flex-col max-w-sm w-full rounded-2xl bg-white shadow-2xl">
-                <div className="w-full h-40 rounded-t-2xl">
+                <div className="w-full rounded-t-2xl">
                     <Image
                         className="rounded-t-2xl"
                         width={384}

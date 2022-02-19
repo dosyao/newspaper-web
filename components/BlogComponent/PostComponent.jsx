@@ -17,6 +17,9 @@ const PostComponent = () => {
         <main className="w-full max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row justify-center py-5 lg:py-10">
                 <section className="px-5 max-w-2xl">
+                    <h1 className="mt-0 mb-5 text-2xl font-semibold lg:text-3xl lg:font-black lg:mb-7">
+                        {title}
+                    </h1>
                     <div className="relative mb-6 rounded-xl mx-auto">
                         <Image
                             className="rounded-xl"
