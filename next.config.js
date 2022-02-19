@@ -3,7 +3,7 @@ module.exports = {
   swcMinify: true,
   images: {
     domains: [
-      "www.industrialempathy.com"
+      "res.cloudinary.com"
     ]
   }
 }

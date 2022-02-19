@@ -12,7 +12,7 @@ import TextBox from "../UI/TextBox";
 
 const PostComponent = () => {
     const { post } = useBlog();
-    const { image, content } = post.data;
+    const { image, content, title } = post;
     return (
         <main className="w-full max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row justify-center py-5 lg:py-10">
@@ -20,11 +20,11 @@ const PostComponent = () => {
                     <div className="relative mb-6 rounded-xl mx-auto">
                         <Image
                             className="rounded-xl"
-                            key={image.src}
-                            src={image.src}
-                            width={image.width}
-                            height={image.height}
-                            alt={image.alt}
+                            key={image}
+                            src={image}
+                            width={632}
+                            height={356}
+                            alt={title}
                             layout='responsive'
                             sizes='(max-width: 576px) 100vw, (max-width: 1024px) 75vw, 632px'
                             priority

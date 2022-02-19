@@ -10,10 +10,10 @@ const Card = ({ card, priority }) => {
                 <div className="w-full h-40 rounded-t-2xl">
                     <Image
                         className="rounded-t-2xl"
-                        width={image.width}
-                        height={image.height}
-                        alt={image.alt}
-                        src={image.src}
+                        width={384}
+                        height={216}
+                        alt="blog card"
+                        src={image}
                         layout="responsive"
                         sizes="(max-width: 576px) calc(100vw - 40px), (max-width: 1024px) 50vw, 384px"
                         priority={priority}
