@@ -1,0 +1,15 @@
+.container {
+    @apply p-5 mx-1 bg-white shadow-xl max-w-xl w-full lg:mx-auto lg:my-20 rounded-xl lg:p-7;
+}
+
+.infoH1 {
+    @apply mt-0 mb-5 text-lg font-semibold lg:text-2xl lg:font-black lg:mb-7;
+}
+
+.infoP {
+    @apply m-0 pb-3 text-sm text-justify lg:text-base lg:pb-5;
+}
+
+.infoA {
+    @apply no-underline text-cyan-500 cursor-pointer;
+}
