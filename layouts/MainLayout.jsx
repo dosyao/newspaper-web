@@ -9,7 +9,7 @@ const MainLayout = ({ children, isGray = false }) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     return (
-        <div className={`min-h-screen w-full ${isGray ? "bg-[#f5fafa]" : "bg-white"}`}>
+        <div className={`min-h-screen w-full ${isGray ? "lg:bg-[#f5fafa]" : "bg-white"}`}>
             <Header setOpenModal={setModalOpen.bind(null, true)} />
             {children}
             {modalOpen && <LoginModal closeModal={setModalOpen.bind(null, false)} />}
