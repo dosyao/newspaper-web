@@ -1,12 +1,11 @@
 import { serialize } from "next-mdx-remote/serialize";
-import { loadCategories, loadPosts } from "../../api/blog";
+import { loadCategories, loadPostBySlug, loadPosts } from "../../api/blog";
 import BlogPage from "./index";
 
 export const getStaticProps = async ({ params }) => {
     const slug = params.postSlug;
     const categories = await loadCategories();
-    const posts = await loadPosts();
-    const post = posts.find(post => post.slug === slug);
+    const post = await loadPostBySlug(slug);
     const selectedCategory = categories?.find?.(cat => cat.id === post.categoryId);
 
     if (!post || !categories?.length) return {
