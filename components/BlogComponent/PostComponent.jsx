@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import {
     TelegramShareButton,
     ViberShareButton,
@@ -11,23 +9,13 @@ import {
 } from "react-share";
 import useBlog from "../../hooks/useBlog";
 import TextBox from "../UI/TextBox";
-import styles from "./PostComponent.module.css";
 
 const PostComponent = () => {
-    const { query } = useRouter();
     const { post } = useBlog();
     const { image, content } = post.data;
-
-    const prepareLink = (title) => {
-        return title.toLowerCase().trim().replace(/ /gi, "-");
-    }
-
     return (
         <main className="w-full max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row justify-center py-5 lg:py-10">
-                <div className="p-0 space-y-2 hidden flex-col lg:flex">
-                    <h4 className="text-lg font-bold mb-1">Contents</h4>
-                </div>
                 <section className="px-5 max-w-2xl">
                     <div className="relative mb-6 rounded-xl mx-auto">
                         <Image

@@ -5,11 +5,11 @@ import { useState } from "react";
 const Footer = dynamic(() => import("../components/UI/Footer"));
 const LoginModal = dynamic(() => import("../components/UI/LoginModal"));
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, isGray = false }) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     return (
-        <div className="min-h-screen w-full">
+        <div className={`min-h-screen w-full ${isGray ? "bg-[#f5fafa]" : "bg-white"}`}>
             <Header setOpenModal={setModalOpen.bind(null, true)} />
             {children}
             {modalOpen && <LoginModal closeModal={setModalOpen.bind(null, false)} />}
