@@ -9,7 +9,7 @@ const RelatedPosts = () => {
     if (!relatedPosts?.length) return null;
 
     return (
-        <div className="p-5 mx-auto my-5 lg:my-10 flex flex-wrap gap-5 max-w-7 w-full border-t-2">
+        <div className="p-5 mx-auto my-5 lg:my-10 flex flex-wrap gap-5 max-w-7 w-full border-t-2 items-start">
             {relatedPosts.map(post => (
                 <Card key={post.id} card={post} />
             ))}

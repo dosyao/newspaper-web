@@ -36,7 +36,7 @@ const PostsComponent = () => {
 
     return (
         <main className="w-full max-w-7xl mx-auto" style={{ minHeight: "calc(100vh - 240px)" }}>
-            <div className="w-full flex flex-wrap gap-5 p-5 mx-auto">
+            <div className="w-full flex flex-wrap gap-5 p-5 mx-auto items-start">
                 {postsData?.total && postsData?.posts.map((post, idx) => (
                     <Card key={post.id} card={post} priority={idx < 3} />
                 ))}
