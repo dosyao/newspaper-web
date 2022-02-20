@@ -27,7 +27,7 @@ const Card = ({ card, priority }) => {
                     </div>
                 )}
                 <div className="flex-1 px-4 py-6 space-y-3">
-                    <h4 className="text-xl font-bold">
+                    <h4 className="text-xl font-black">
                         {title}
                     </h4>
                     <p className="text-base text-justify">
