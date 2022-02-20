@@ -38,7 +38,8 @@ const Header = ({ setOpenModal }) => {
                                 type='link'
                                 href='/blog'
                             />
-                            <Button
+                            {/* TODO: Temporary commented */}
+                            {/* <Button
                                 label='Work'
                                 type='link'
                                 href='/vacancies'
@@ -52,9 +53,10 @@ const Header = ({ setOpenModal }) => {
                                 label='Upgrade'
                                 type='link'
                                 href='/upgrade'
-                            />
+                            /> */}
                         </div>
-                        <div className="flex flex-col items-center space-y-3 lg:flex-row lg:space-x-4 lg:space-y-0">
+                        {/* TODO: Implement Login and Signup */}
+                        {/* <div className="flex flex-col items-center space-y-3 lg:flex-row lg:space-x-4 lg:space-y-0">
                             <Button
                                 label='Login'
                                 type='transparent'
@@ -65,7 +67,7 @@ const Header = ({ setOpenModal }) => {
                                 type='black'
                                 href='/signup'
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

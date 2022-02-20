@@ -5,9 +5,9 @@ const Footer = () => {
     return (
         <footer className="bg-black w-full">
             <div className="px-5 py-6 lg:py-10 max-w-7xl w-full mx-auto text-white flex flex-col space-y-6 lg:flex-row lg:space-y-0 lg:justify-between lg:items-center">
-                <h3 className="text-2xl font-bold cursor-default justify-start">
+                <span className="text-2xl font-bold cursor-default justify-start">
                     Newspaper
-                </h3>
+                </span>
                 <div className="flex flex-col space-y-3 lg:flex-row lg:space-y-0 lg:space-x-4 text-sm">
                     <Link href={ABOUT}>
                         <a>
@@ -19,7 +19,8 @@ const Footer = () => {
                             Contact us
                         </a>
                     </Link>
-                    <Link href={TERMS}>
+                    {/* TODO: Add terms and privacy pages */}
+                    {/* <Link href={TERMS}>
                         <a>
                             Terms &#38; conditions
                         </a>
@@ -28,7 +29,7 @@ const Footer = () => {
                         <a>
                             Privacy policy
                         </a>
-                    </Link>
+                    </Link> */}
                 </div>
                 <span className="justify-end text-sm">
                     ©{new Date().getFullYear()} Copyright

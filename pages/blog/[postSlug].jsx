@@ -6,6 +6,7 @@ export const getStaticProps = async ({ params }) => {
     const slug = params.postSlug;
     const categories = await loadCategories();
     const post = await loadPostBySlug(slug);
+    const relatedResp = await loadPosts(1, 3, post?.categoryId, post?.id);
     const selectedCategory = categories?.find?.(cat => cat.id === post.categoryId);
 
     if (!post || !categories?.length) return {
@@ -19,7 +20,8 @@ export const getStaticProps = async ({ params }) => {
     const blogState = {
         categories: categories ?? null,
         selectedCategory: selectedCategory ?? null,
-        post: post ?? null
+        post: post ?? null,
+        relatedPosts: relatedResp?.posts ?? null
     }
 
     return {

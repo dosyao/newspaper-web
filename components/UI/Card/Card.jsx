@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Card = ({ card, priority }) => {
-    const { title, description, image, slug } = card;
+    const { title, description, image, slug, createdDateTime } = card;
+    const formattedDate = Intl.DateTimeFormat('en-US', {
+        year  : 'numeric',
+        day   : '2-digit',
+        month : 'short'
+    }).format(new Date(createdDateTime));
 
     return (
         <Link href={`/blog/${slug}`}>
@@ -27,6 +32,9 @@ const Card = ({ card, priority }) => {
                     </h4>
                     <p className="text-base text-justify">
                         {description}
+                    </p>
+                    <p className="text-base text-gray-500">
+                        {formattedDate}
                     </p>
                 </div>
             </a>

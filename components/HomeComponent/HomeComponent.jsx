@@ -1,11 +1,14 @@
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import styles from "./HomeComponent.module.css";
 import MainLayout from "../../layouts/MainLayout";
+import useHome from "../../hooks/useHome";
 
-// const Card = dynamic(() => import("../UI/Card"));
+const Card = dynamic(() => import("../UI/Card"));
 
 const HomeComponent = () => {
+    const { posts } = useHome();
+
     return (
         <MainLayout>
             <Head>
@@ -28,15 +31,16 @@ const HomeComponent = () => {
                     </p>
                 </div>
             </section>
-            {/* TODO: Add latest news */}
-            {/* <section className={styles.cardsSection}>
-                <h3 className={styles.label}>
-                    Latest News
-                </h3>
-                <div className={styles.cards}>
-                    {cards.map(card => <Card key={card.title} card={card} />)}
-                </div>
-            </section> */}
+            {posts?.length && (
+                <section className={styles.cardsSection}>
+                    <h3 className={styles.label}>
+                        Latest News
+                    </h3>
+                    <div className={styles.cards}>
+                        {posts.map(post => <Card key={post.title} card={post} />)}
+                    </div>
+                </section>
+            )}
             <section className={styles.blackSection}>
                 <div className={styles.blackWrapper}>
                     <h3 className={styles.label}>

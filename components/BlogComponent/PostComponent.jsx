@@ -1,4 +1,5 @@
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import {
     TelegramShareButton,
     ViberShareButton,
@@ -9,13 +10,18 @@ import {
 } from "react-share";
 import useBlog from "../../hooks/useBlog";
 import TextBox from "../UI/TextBox";
+import Titles from "./Titles";
+
+const RelatedPosts = dynamic(() => import("./RelatedPosts"));
 
 const PostComponent = () => {
     const { post } = useBlog();
     const { image, content, title } = post;
+
     return (
         <main className="w-full max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row justify-center py-5 lg:py-10">
+                <Titles />
                 <section className="px-5 max-w-2xl">
                     <h1 className="mt-0 mb-5 text-2xl font-semibold lg:text-3xl lg:font-black lg:mb-7">
                         {title}
@@ -56,6 +62,7 @@ const PostComponent = () => {
                     </TelegramShareButton>
                 </div>
             </div>
+            <RelatedPosts />
         </main>
     );
 }
