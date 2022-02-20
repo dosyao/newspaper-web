@@ -3,7 +3,7 @@ import useDisplay from "../../../hooks/useDisplay";
 
 const PaginationComponent = ({ totalPages, page, onClick, hrefBuilder }) => {
     const { lg } = useDisplay();
-    console.log(lg ? 3 : 1);
+
     return (
         <div className="mb-5 mt-auto lg:mb-10 flex justify-center">
             <ReactPaginate
