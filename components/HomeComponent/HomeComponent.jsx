@@ -23,9 +23,9 @@ const HomeComponent = () => {
             </section>
             <section className={styles.blackSection}>
                 <div className={styles.blackWrapper}>
-                    <h3 className={styles.label}>
+                    <h2 className={styles.label}>
                         Fresh News
-                    </h3>
+                    </h2>
                     <p className={styles.text}>
                         Here you will always be up to date with the latest events and news in the world. We constantly filter and select only true information.
                     </p>
@@ -33,9 +33,9 @@ const HomeComponent = () => {
             </section>
             {posts?.length && (
                 <section className={styles.cardsSection}>
-                    <h3 className={styles.label}>
+                    <h2 className={styles.label}>
                         Latest News
-                    </h3>
+                    </h2>
                     <div className={styles.cards}>
                         {posts.map(post => <Card key={post.title} card={post} />)}
                     </div>
@@ -43,9 +43,9 @@ const HomeComponent = () => {
             )}
             <section className={styles.blackSection}>
                 <div className={styles.blackWrapper}>
-                    <h3 className={styles.label}>
+                    <h2 className={styles.label}>
                         Buy and Sell
-                    </h3>
+                    </h2>
                     <p className={styles.text}>
                         Here you can always buy or sell something that you are tired of, or post your ad or news. We provide the opportunity to sell and buy goods from other similar sellers.
                     </p>
@@ -53,18 +53,18 @@ const HomeComponent = () => {
             </section>
             {/* TODO: Add hot advertisements */}
             {/* <section className={styles.cardsSection}>
-                <h3 className={styles.label}>
+                <h2 className={styles.label}>
                     Hot Advertisements
-                </h3>
+                </h2>
                 <div className={styles.cards}>
                     {cards.map(card => <Card key={card.title} card={card} />)}
                 </div>
             </section> */}
             <section className={styles.blackSection}>
                 <div className={styles.blackWrapper}>
-                    <h3 className={styles.label}>
+                    <h2 className={styles.label}>
                         Security
-                    </h3>
+                    </h2>
                     <p className={styles.text}>
                         We always monitor every ad or news for authenticity, so you should not be afraid that you may be deceived. Payment for goods is made on the Stripe platform, which guarantees the security of your payments.
                     </p>
@@ -72,9 +72,9 @@ const HomeComponent = () => {
             </section>
             {/* TODO: add best vacancies */}
             {/* <section className={styles.cardsSection}>
-                <h3 className={styles.label}>
+                <h2 className={styles.label}>
                     The Best Vacancies
-                </h3>
+                </h2>
                 <div className={styles.cards}>
                     {cards.map(card => <Card key={card.title} card={card} />)}
                 </div>
