@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
     };
 
     return {
-        revalidate: 3600,
+        revalidate: 200,
         props: {
             homeState
         }
