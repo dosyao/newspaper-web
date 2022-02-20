@@ -14,9 +14,10 @@ export default BlogPage;
 
 export const getStaticProps = async ({ params }) => {
     const categorySlug = params?.categorySlug;
+    const pageNumber = params?.pageNumber;
     const categories = await loadCategories();
     const selectedCategory = categories?.find?.(cat => cat.slug === categorySlug);
-    const postsData = await loadPosts();
+    const postsData = await loadPosts(pageNumber ?? 1, 9, selectedCategory?.id);
     const notFound = categorySlug && !selectedCategory  || !categories?.length || !postsData?.posts?.length;
 
     if (notFound) return {

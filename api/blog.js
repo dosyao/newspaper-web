@@ -11,13 +11,14 @@ export const loadCategories = async () => {
         return null;
     }
 }
-// TODO: Add query params
-export const loadPosts = async (page = 1, perPage = 100, categoryId = null) => {
+
+export const loadPosts = async (page = 1, perPage = 100, categoryId = null, excludeId = null) => {
     try {
         let queryParams = `?page=${page}&per_page=${perPage}`;
-        if (categoryId) queryParams += `&category=${categoryId}`;
+        if (categoryId) queryParams += `&categoryId=${categoryId}`;
+        if (excludeId) queryParams += `&excludeId=${excludeId}`
 
-        const response = await axios.get(`${apiPrefix}/posts`);
+        const response = await axios.get(`${apiPrefix}/posts${queryParams}`);
 
         return response.data;
     } catch {
