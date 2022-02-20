@@ -1,5 +1,6 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import {
     TelegramShareButton,
     ViberShareButton,
@@ -20,6 +21,10 @@ const PostComponent = () => {
 
     return (
         <main className="w-full max-w-7xl mx-auto">
+            <Head>
+                <title>{post.title} | Newspaper</title>
+                <meta name="description" content={post.description} />
+            </Head>
             <div className="flex flex-col lg:flex-row justify-center py-5 lg:py-10">
                 <Titles />
                 <section className="px-5 max-w-2xl">

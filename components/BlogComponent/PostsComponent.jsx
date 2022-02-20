@@ -1,6 +1,7 @@
 import useBlog from "../../hooks/useBlog";
 import dynamic from "next/dynamic";
 import Card from "../UI/Card";
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 const Pagination = dynamic(() => import("../UI/Pagination"));
@@ -36,6 +37,9 @@ const PostsComponent = () => {
 
     return (
         <main className="w-full max-w-7xl mx-auto" style={{ minHeight: "calc(100vh - 240px)" }}>
+            <Head>
+                <title>{selectedCategory?.name ?? "Blog"} | Newspaper</title>
+            </Head>
             <div className="w-full flex flex-wrap gap-5 p-5 mx-auto items-start">
                 {postsData?.total && postsData?.posts.map((post, idx) => (
                     <Card key={post.id} card={post} priority={idx < 3} />
