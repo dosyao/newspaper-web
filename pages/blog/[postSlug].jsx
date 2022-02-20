@@ -31,8 +31,8 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths = async () => {
-    const posts = await loadPosts();
-    const paths = posts.map(post => ({
+    const postsData = await loadPosts();
+    const paths = postsData.posts.map(post => ({
         params: {
             postSlug: post.slug
         }
