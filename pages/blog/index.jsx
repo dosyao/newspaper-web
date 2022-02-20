@@ -16,8 +16,8 @@ export const getStaticProps = async ({ params }) => {
     const categorySlug = params?.categorySlug;
     const categories = await loadCategories();
     const selectedCategory = categories?.find?.(cat => cat.slug === categorySlug);
-    const posts = await loadPosts();
-    const notFound = categorySlug && !selectedCategory  || !categories?.length || !posts?.length;
+    const postsData = await loadPosts();
+    const notFound = categorySlug && !selectedCategory  || !categories?.length || !postsData?.posts?.length;
 
     if (notFound) return {
         notFound: true
@@ -26,12 +26,7 @@ export const getStaticProps = async ({ params }) => {
     const blogState = {
         categories: categories ?? null,
         selectedCategory: selectedCategory ?? null,
-        postsData: {
-            total: 1,
-            totalPages: 1,
-            page: 1,
-            posts
-        }
+        postsData
     }
 
     return {
