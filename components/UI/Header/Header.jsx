@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 const Header = ({ setOpenModal }) => {
     const { pathname } = useRouter();
-    const [isOpen, setOpen] = useState(false);
+    const [isOpen, setOpen] = useState(true);
     const Icon = isOpen ? XIcon : MenuIcon;
     const { lg } = useDisplay();
     const shouldHeaderSticky = pathname !== BLOG_POST || !lg;
@@ -27,9 +27,10 @@ const Header = ({ setOpenModal }) => {
                     </a>
                 </Link>
                 <Icon className="text-black w-7 h-8 cursor-pointer lg:hidden" onClick={setOpen.bind(null, !isOpen)} />
+                {/* FIXME: set translateY to 120% after adding all links in header */}
                 <div
                     className="absolute top-[66px] left-0 transition-all w-full lg:relative lg:top-0 bg-white"
-                    style={!lg ? { transform: isOpen ? 'translateY(0)' : 'translateY(-120%)', opacity: isOpen ? 1 : 0 } : null}
+                    style={!lg ? { transform: isOpen ? 'translateY(0)' : 'translateY(-200%)', opacity: isOpen ? 1 : 0 } : null}
                 >
                     <div className="px-4 py-6 space-y-5 lg:flex lg:justify-between lg:p-0 lg:space-y-0">
                         <div className="flex flex-col items-center lg:flex-row lg:space-x-3">

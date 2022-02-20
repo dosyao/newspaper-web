@@ -1,5 +1,5 @@
 const Link = (props) => (
-    <a {...props} className="no-underline text-cyan-500 cursor-pointer" />
+    <a {...props} target="_blank" rel="noreferrer noopener" className="no-underline text-cyan-500 cursor-pointer" />
 );
 
 export default Link;
