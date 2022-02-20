@@ -20,7 +20,7 @@
 }
 
 .cards {
-    @apply flex flex-wrap gap-5 justify-center;
+    @apply flex flex-wrap gap-5 justify-center items-start;
 }
 
 .label {
