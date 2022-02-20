@@ -6,7 +6,11 @@ export const loadCategories = async () => {
     try {
         const response = await axios.get(`${apiPrefix}/category`);
 
-        return response.data;
+        if (!response?.data?.length) return null;
+
+        const categories = response.data.map(el => ({ count: el.count, ...el.category }));
+
+        return categories;
     } catch {
         return null;
     }

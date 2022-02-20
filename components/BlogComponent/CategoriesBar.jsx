@@ -42,13 +42,17 @@ const CategoriesBar = () => {
                                 <CheckIcon className={`w-5 h-5 ${selectedCategory && "hidden"} lg:hidden`} />
                             </a>
                         </Link>
-                        {categories?.length && categories.map(cat => (
-                            <Link key={cat.slug} href={`/blog/category/${cat.slug}`}>
-                                <a className={`text-md font-semibold flex w-full justify-between lg:justify-start lg:w-auto ${selectedCategory?.id === cat.id && "lg:border-b-2 lg:border-b-white"}`}>
-                                    <span>{cat.name}</span> <CheckIcon className="w-5 h-5 lg:hidden" style={{ display: selectedCategory?.id !== cat.id && "none" }} />
-                                </a>
-                            </Link>
-                        ))}
+                        {categories?.length && categories.map(cat => {
+                            if (cat.count === 0) return null;
+
+                            return (
+                                <Link key={cat.slug} href={`/blog/category/${cat.slug}`}>
+                                    <a className={`text-md font-semibold flex w-full justify-between lg:justify-start lg:w-auto ${selectedCategory?.id === cat.id && "lg:border-b-2 lg:border-b-white"}`}>
+                                        <span>{cat.name}</span> <CheckIcon className="w-5 h-5 lg:hidden" style={{ display: selectedCategory?.id !== cat.id && "none" }} />
+                                    </a>
+                                </Link>
+                            );
+                        })}
                     </div>
                 )}
             </div>
