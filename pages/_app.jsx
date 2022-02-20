@@ -23,7 +23,7 @@ const App = ({ Component, pageProps }) => {
     return (
         <DisplaySize>
             <Head>
-                <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
+                <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover" />
             </Head>
             <Component {...pageProps} />
             {!cookieRead && <CookieModal onClick={handleCookie} />}
