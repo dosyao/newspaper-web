@@ -12,7 +12,7 @@ const PaginationComponent = ({ totalPages, page, onClick, hrefBuilder }) => {
                 previousLabel="Prev"
                 onPageChange={onClick}
                 initialPage={page - 1}
-                pageCount={10}
+                pageCount={totalPages}
                 marginPagesDisplayed={lg ? 3 : 1}
                 hrefBuilder={hrefBuilder}
                 className="flex space-x-3 lg:space-x-8 items-center mx-auto"
