@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 const Header = ({ setOpenModal }) => {
     const { pathname } = useRouter();
-    const [isOpen, setOpen] = useState(true);
+    const [isOpen, setOpen] = useState(false);
     const Icon = isOpen ? XIcon : MenuIcon;
     const { lg } = useDisplay();
     const shouldHeaderSticky = pathname !== BLOG_POST || !lg;
