@@ -1,7 +1,6 @@
-import { loadCategories } from "../../../../api/blog";
-import { loadPosts } from "../../../api/blog";
-import BlogPage from "../index";
-export { getStaticProps } from "../index";
+import { loadCategories, loadPosts } from "../../../../api/blog";
+import BlogPage from "../../index";
+export { getStaticProps } from "../../index";
 export default BlogPage;
 
 export const getStaticPaths = async () => {
