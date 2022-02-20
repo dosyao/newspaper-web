@@ -45,7 +45,7 @@ const PostsComponent = () => {
                     <Card key={post.id} card={post} priority={idx < 3} />
                 ))}
             </div>
-            {postsData?.total > 9 && (
+            {postsData?.total > 6 && (
                 <Pagination
                     totalPages={postsData.totalPages}
                     page={postsData.page}
