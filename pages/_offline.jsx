@@ -9,7 +9,7 @@ const Offline = () => {
             </Head>
             <div className="w-auto flex-1">
                 <h1 className={styles.title}>
-                    Always be<br /> aware of events.
+                    No internet connection
                 </h1>
             </div>
         </div>
