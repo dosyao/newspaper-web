@@ -47,7 +47,7 @@ const PostsComponent = () => {
             </div>
             {postsData?.total > 6 && (
                 <Pagination
-                    totalPages={postsData.totalPages}
+                    totalPages={postsData.total_pages}
                     page={postsData.page}
                     hrefBuilder={hrefBuilder(selectedCategory?.slug)}
                     onClick={handleClick(selectedCategory?.slug)}
