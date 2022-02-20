@@ -36,7 +36,7 @@ const PostsComponent = () => {
     }
 
     return (
-        <main className="w-full max-w-7xl mx-auto" style={{ minHeight: "calc(100vh - 240px)" }}>
+        <main className="w-full max-w-7xl mx-auto" style={{ minHeight: "calc(100vh - 230px)" }}>
             <Head>
                 <title>{selectedCategory?.name ?? "Blog"} | Newspaper</title>
             </Head>
