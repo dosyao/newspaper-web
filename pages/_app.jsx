@@ -1,5 +1,6 @@
 import DisplaySize from "../hocs/DisplaySize";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import "../styles/globals.css";
 import { useEffect, useState } from "react";
 
@@ -21,6 +22,9 @@ const App = ({ Component, pageProps }) => {
 
     return (
         <DisplaySize>
+            <Head>
+                <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
+            </Head>
             <Component {...pageProps} />
             {!cookieRead && <CookieModal onClick={handleCookie} />}
         </DisplaySize>
