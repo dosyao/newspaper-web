@@ -19,13 +19,17 @@ const Titles = () => {
     return (
         <div className="p-0 space-y-2 hidden flex-col lg:flex">
             <h4 className="text-lg font-bold mb-1">Contents</h4>
-            {[ ...titles ].map(el => (
-                <Link key={el.id} href={`/blog/${query.postSlug}#${el.id}`}>
-                    <a className={`max-w-[200px] text-cyan-500 ${asPath.includes(`#${el.id}`) && "font-bold"}`}>
-                        {el.innerHTML}
-                    </a>
-                </Link>
-            ))}
+            {[ ...titles ].map(el => {
+                if (!document.getElementById(el.id)) return null;
+
+                return (
+                    <Link key={el.id} href={`/blog/${query.postSlug}#${el.id}`}>
+                        <a className={`max-w-[200px] text-cyan-500 ${asPath.includes(`#${el.id}`) && "font-bold"}`}>
+                            {el.innerHTML}
+                        </a>
+                    </Link>
+                )
+            })}
         </div>
     );
 }
