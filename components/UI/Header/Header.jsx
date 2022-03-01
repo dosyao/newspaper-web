@@ -45,11 +45,6 @@ const Header = ({ setOpenModal }) => {
                                 href='/vacancies'
                             />
                             <Button
-                                label='Shop'
-                                type='link'
-                                href='/advertisements'
-                            />
-                            <Button
                                 label='Upgrade'
                                 type='link'
                                 href='/upgrade'
