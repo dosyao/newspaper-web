@@ -27,10 +27,9 @@ const Header = ({ setOpenModal }) => {
                     </a>
                 </Link>
                 <Icon className="text-black w-7 h-8 cursor-pointer lg:hidden" onClick={setOpen.bind(null, !isOpen)} />
-                {/* FIXME: set translateY to 120% after adding all links in header */}
                 <div
                     className="absolute top-[66px] left-0 transition-all w-full lg:relative lg:top-0 bg-white"
-                    style={!lg ? { transform: isOpen ? 'translateY(0)' : 'translateY(-200%)', opacity: isOpen ? 1 : 0 } : null}
+                    style={!lg ? { transform: isOpen ? 'translateY(0)' : 'translateY(-120%)', transitionDuration: '500ms', opacity: isOpen ? 1 : 0 } : null}
                 >
                     <div className="px-4 py-6 space-y-5 lg:flex lg:justify-between lg:p-0 lg:space-y-0">
                         <div className="flex flex-col items-center lg:flex-row lg:space-x-3">
@@ -39,8 +38,8 @@ const Header = ({ setOpenModal }) => {
                                 type='link'
                                 href='/blog'
                             />
-                            {/* TODO: Temporary commented */}
-                            {/* <Button
+                            {/* TODO: Implement pages */}
+                            <Button
                                 label='Work'
                                 type='link'
                                 href='/vacancies'
@@ -54,21 +53,22 @@ const Header = ({ setOpenModal }) => {
                                 label='Upgrade'
                                 type='link'
                                 href='/upgrade'
-                            /> */}
+                            />
                         </div>
                         {/* TODO: Implement Login and Signup */}
-                        {/* <div className="flex flex-col items-center space-y-3 lg:flex-row lg:space-x-4 lg:space-y-0">
+                        <div className="flex flex-col items-center space-y-3 lg:flex-row lg:space-x-4 lg:space-y-0">
                             <Button
                                 label='Login'
                                 type='transparent'
-                                onClick={handleOpenModal}
+                                href='/login'
+                                // onClick={handleOpenModal}
                             />
                             <Button
                                 label='Sign Up'
                                 type='black'
                                 href='/signup'
                             />
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </div>

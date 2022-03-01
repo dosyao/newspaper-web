@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ABOUT, CONTACT, TERMS, PRIVACY } from "../../../constants/routes";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
     return (
@@ -10,26 +11,26 @@ const Footer = () => {
                 </span>
                 <div className="flex flex-col space-y-3 lg:flex-row lg:space-y-0 lg:space-x-4 text-sm">
                     <Link href={ABOUT}>
-                        <a>
+                        <a className={styles.footerLink}>
                             About us
                         </a>
                     </Link>
                     <Link href={CONTACT}>
-                        <a>
+                        <a className={styles.footerLink}>
                             Contact us
                         </a>
                     </Link>
                     {/* TODO: Add terms and privacy pages */}
-                    {/* <Link href={TERMS}>
-                        <a>
+                    <Link href={TERMS}>
+                        <a className={styles.footerLink}>
                             Terms &#38; conditions
                         </a>
                     </Link>
                     <Link href={PRIVACY}>
-                        <a>
+                        <a className={styles.footerLink}>
                             Privacy policy
                         </a>
-                    </Link> */}
+                    </Link>
                 </div>
                 <span className="justify-end text-sm">
                     ©{new Date().getFullYear()} Copyright
