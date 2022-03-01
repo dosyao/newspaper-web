@@ -28,7 +28,7 @@ const Header = ({ setOpenModal }) => {
                 </Link>
                 <Icon className="text-black w-7 h-8 cursor-pointer lg:hidden" onClick={setOpen.bind(null, !isOpen)} />
                 <div
-                    className="absolute top-[66px] left-0 transition-all w-full lg:relative lg:top-0 bg-white"
+                    className="absolute top-[66px] left-0 transition-all w-full lg:relative lg:top-0 bg-white lg:transition-none"
                     style={!lg ? { transform: isOpen ? 'translateY(0)' : 'translateY(-120%)', transitionDuration: '500ms', opacity: isOpen ? 1 : 0 } : null}
                 >
                     <div className="px-4 py-6 space-y-5 lg:flex lg:justify-between lg:p-0 lg:space-y-0">
