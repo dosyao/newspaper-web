@@ -44,17 +44,17 @@ const HomeComponent = () => {
             <section className={styles.blackSection}>
                 <div className={styles.blackWrapper}>
                     <h2 className={styles.label}>
-                        Buy and Sell
+                        Job search
                     </h2>
                     <p className={styles.text}>
-                        Here you can always buy or sell something that you are tired of, or post your ad or news. We provide the opportunity to sell and buy goods from other similar sellers.
+                        Are you looking for or offering a job? You can register as a worker or company and find a job.
                     </p>
                 </div>
             </section>
-            {/* TODO: Add hot advertisements */}
+            {/* TODO: add best vacancies */}
             {/* <section className={styles.cardsSection}>
                 <h2 className={styles.label}>
-                    Hot Advertisements
+                    The Best Vacancies
                 </h2>
                 <div className={styles.cards}>
                     {cards.map(card => <Card key={card.title} card={card} />)}
@@ -70,15 +70,6 @@ const HomeComponent = () => {
                     </p>
                 </div>
             </section>
-            {/* TODO: add best vacancies */}
-            {/* <section className={styles.cardsSection}>
-                <h2 className={styles.label}>
-                    The Best Vacancies
-                </h2>
-                <div className={styles.cards}>
-                    {cards.map(card => <Card key={card.title} card={card} />)}
-                </div>
-            </section> */}
         </MainLayout>
     );
 }
