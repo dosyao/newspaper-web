@@ -1,0 +1,23 @@
+[{
+    "type": "free",
+    "label": "FREE",
+    "userList": [
+        "Send resume to 10 companies per day",
+        "View your resume in order"
+    ],
+    "companyList": [
+        "Create no more than one ad per day",
+        "Vacancies in order of priority"
+    ]
+}, {
+    "type": "paid",
+    "label": "5.99",
+    "userList": [
+        "Send resumes to many companies",
+        "You are more likely to be the first to review your resume"
+    ],
+    "companyList": [
+        "Create many vacancies",
+        "Your vacancies will be at the top"
+    ]
+}]

@@ -1,2 +1,2 @@
-import cs from './signup';
+import cs from './login';
 export default cs;

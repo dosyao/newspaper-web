@@ -1,5 +1,5 @@
-import ComingSoon from "../components/ComingSoon";
+import SignupComponent from "../components/SignupComponent";
 
-const SignUp = () => <ComingSoon />;
+const SignUp = () => <SignupComponent />;
 
 export default SignUp;

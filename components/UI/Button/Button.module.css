@@ -25,5 +25,5 @@
 }
 
 .disabled {
-    @apply bg-slate-700 cursor-default;
+    @apply bg-slate-700 cursor-default hover:shadow-none;
 }

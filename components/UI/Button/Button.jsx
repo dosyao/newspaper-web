@@ -6,13 +6,18 @@ const Link = dynamic(() => import("next/link"));
 
 const cn = classNames.bind(styles);
 
-const Button = ({ href, onClick, label, type, className, disabled }) => {
+const Button = ({ href, onClick: handleClick, label, type, className, disabled }) => {
     const buttonStyles = cn({
         button: true,
         [`button_${type}`]: type,
         [className]: className,
         disabled
     });
+
+    const onClick = () => {
+        if (disabled) return;
+        handleClick?.();
+    }
 
     if (href) return (
         <Link href={href}>
