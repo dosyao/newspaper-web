@@ -5,8 +5,8 @@ import MainLayout from "../../layouts/MainLayout";
 import Button from "../UI/Button";
 import Stepper from "./Stepper";
 import { signup } from "../../api/session";
+import ChooseType from "./ChooseType";
 
-const ChooseType = dynamic(() => import("./ChooseType"));
 const ChooseSubscription = dynamic(() => import("./ChooseSubscription"));
 const RegisterFields = dynamic(() => import("./RegisterFields"));
 
