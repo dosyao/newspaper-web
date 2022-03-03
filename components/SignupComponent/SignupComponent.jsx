@@ -6,6 +6,10 @@ import Button from "../UI/Button";
 import Stepper from "./Stepper";
 import { signup } from "../../api/session";
 import ChooseType from "./ChooseType";
+import { setCookies } from "cookies-next";
+import { USER_TOKEN } from "../../constants/common";
+import { HOME } from "../../constants/routes";
+import { useEffect } from "react";
 
 const ChooseSubscription = dynamic(() => import("./ChooseSubscription"));
 const RegisterFields = dynamic(() => import("./RegisterFields"));
@@ -20,6 +24,7 @@ const SignupComponent = () => {
         subscription: '',
         type: ''
     });
+    const [isError, setError] = useState(false);
     const shouldDisableBtn =
         step === 1 && !signupState.type ||
         step === 2 && !signupState.subscription ||
@@ -29,7 +34,12 @@ const SignupComponent = () => {
             !signupState.password ||
             !signupState.confirmPassword ||
             signupState.password !== signupState.confirmPassword
-        );
+    );
+
+    useEffect(() => {
+        if (isError) setError(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [signupState.email]);
 
     const setType = (type) => {
         setSignupState({ ...signupState, type });
@@ -48,8 +58,16 @@ const SignupComponent = () => {
             return;
         }
 
-        const response = await signup({ ...signupState });
-        console.log(response);
+        const token = await signup({ ...signupState });
+
+        if (!token) {
+            setError(true);
+            return;
+        }
+
+        setCookies(USER_TOKEN, token);
+        
+        window.location.href = HOME;
     }
 
     const handleBack = () => {
@@ -87,7 +105,7 @@ const SignupComponent = () => {
                     <Stepper step={step} />
                     {step === 1 && <ChooseType type={signupState.type} setType={setType} />}
                     {step === 2 && <ChooseSubscription subscription={signupState.subscription} setSubscription={setSubscription} type={signupState.type} />}
-                    {step === 3 && <RegisterFields state={[signupState, setSignupState]} />}
+                    {step === 3 && <RegisterFields state={[signupState, setSignupState]} isError={isError} />}
                     <div className="w-full justify-center items-center flex-col space-y-3 flex pt-5 lg:pt-10">
                         <Button
                             type='black'

@@ -4,12 +4,19 @@ import Button from "../Button";
 import { XIcon } from "@heroicons/react/solid";
 import { SIGNUP } from "../../../constants/routes";
 import Link from "next/link";
+import jwt from "jsonwebtoken";
+import { login } from "../../../api/session";
+import useApp from "../../../hooks/useApp";
+import { JWT_SECRET, USER_TOKEN } from "../../../constants/common";
+import { setCookies } from "cookies-next";
 
 const LoginModal = ({ closeModal }) => {
     const modalRef = useRef();
+    const [app, setApp] = useApp();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isError, setError] = useState(false);
     const disabled = !email || !password;
 
     useEffect(() => {
@@ -27,16 +34,35 @@ const LoginModal = ({ closeModal }) => {
         }
     }, [closeModal]);
 
+    useEffect(() => {
+        if (isError) setError(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [email, password]);
+
     const handleChange = (handler) => {
         return (event) => handler(event.currentTarget.value);
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = async (event) => {
+        event?.preventDefault?.();
 
         if (disabled) return null;
 
-        console.log(email, password);
+        const token = await login({ email, password });
+
+        if (!token) {
+            setError(true);
+            return;
+        }
+
+        const user = await jwt.decode(token, JWT_SECRET);
+
+        setCookies(USER_TOKEN, token);
+        setApp({
+            ...app,
+            user,
+            isGuestUser: false
+        });
     }
 
     return (
@@ -49,8 +75,9 @@ const LoginModal = ({ closeModal }) => {
                     <XIcon className="absolute right-7 top-10 w-7 h-7 text-black cursor-pointer" onClick={closeModal} />
                 </div>
                 <div className="space-y-3 flex flex-col justify-center items-center">
-                    <Input type="email" label="Email" state={{ value: email, onChange: handleChange(setEmail) }} />
-                    <Input type="password" label="Password" state={{ value: password, onChange: handleChange(setPassword) }} />
+                    <Input type="email" label="Email" state={{ value: email, onChange: handleChange(setEmail) }} error={isError} />
+                    <Input type="password" label="Password" state={{ value: password, onChange: handleChange(setPassword) }} error={isError} />
+                    {isError && <span className="text-red-500 text-sm ml-3">Incorrect email or password.</span>}
                     <Button
                         type="black"
                         label="Login"

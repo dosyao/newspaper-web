@@ -1,8 +1,8 @@
 import Input from "../UI/Input";
 
-const RegisterFields = ({ state }) => {
+const RegisterFields = ({ state, isError }) => {
     const [signupState, setSingupState] = state;
-
+    console.log(isError);
     return (
         <div className="flex flex-col space-y-5 max-w-xs mx-auto pt-5 lg:pt-10">
             <Input
@@ -21,6 +21,7 @@ const RegisterFields = ({ state }) => {
             <Input
                 label="Email"
                 type="email"
+                error={isError}
                 state={{
                     value: signupState.email,
                     onChange: (e) => {
@@ -31,6 +32,7 @@ const RegisterFields = ({ state }) => {
                     }
                 }}
             />
+            {isError && <span className="text-red-500 text-sm ml-3">Is Email already exsist.</span>}
             <Input
                 label="Password"
                 type="password"

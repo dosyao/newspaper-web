@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const apiPrefix = process.env.NEXT_PUBLIC_API_PREFIX;
+import { API_PREFIX } from "../constants/common";
 
 export const loadCategories = async () => {
     try {
-        const response = await axios.get(`${apiPrefix}/category`);
+        const response = await axios.get(`${API_PREFIX}/category`);
 
         if (!response?.data?.length) return null;
 
@@ -22,7 +22,7 @@ export const loadPosts = async (page = 1, perPage = 100, categoryId = null, excl
         if (categoryId) queryParams += `&categoryId=${categoryId}`;
         if (excludeId) queryParams += `&excludeId=${excludeId}`
 
-        const response = await axios.get(`${apiPrefix}/posts${queryParams}`);
+        const response = await axios.get(`${API_PREFIX}/posts${queryParams}`);
 
         return response.data;
     } catch {
@@ -32,7 +32,7 @@ export const loadPosts = async (page = 1, perPage = 100, categoryId = null, excl
 
 export const loadPostBySlug = async (slug) => {
     try {
-        const response = await axios.get(`${apiPrefix}/posts/${slug}`);
+        const response = await axios.get(`${API_PREFIX}/posts/${slug}`);
 
         return response.data;
     } catch {

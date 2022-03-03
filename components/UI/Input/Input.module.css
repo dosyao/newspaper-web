@@ -2,6 +2,10 @@
     @apply px-4 py-2 border-2 rounded-lg text-base max-w-xs w-screen;
 }
 
+.error {
+    @apply text-red-500 border-red-500 -mb-5;
+}
+
 .input:not(:placeholder-shown) + .label {
     @apply bg-white translate-y-[-50%] opacity-100;
 }

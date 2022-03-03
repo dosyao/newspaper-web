@@ -3,17 +3,19 @@ import { useState } from "react";
 import Link from "next/link";
 import useDisplay from "../../../hooks/useDisplay";
 import Button from "../Button";
-import { HOME, BLOG_POST, LOGIN, SIGNUP } from "../../../constants/routes";
+import { HOME, BLOG_POST } from "../../../constants/routes";
 import { useRouter } from "next/router";
+import useApp from "../../../hooks/useApp";
+import AuthBtns from "./AuthBtns";
+import UserIcon from "./UserIcon";
 
 const Header = ({ setOpenModal }) => {
+    const [appState] = useApp();
     const { pathname } = useRouter();
     const [isOpen, setOpen] = useState(false);
     const Icon = isOpen ? XIcon : MenuIcon;
     const { lg } = useDisplay();
     const shouldHeaderSticky = pathname !== BLOG_POST || !lg;
-    const shouldHideLoginBtn = pathname === LOGIN;
-    const shouldHideSignupBtn = pathname === SIGNUP;
 
     const handleOpenModal = () => {
         setOpen(false);
@@ -52,24 +54,7 @@ const Header = ({ setOpenModal }) => {
                                 href='/upgrade'
                             />
                         </div>
-                        {/* TODO: Implement Login and Signup */}
-                        <div className="flex flex-col items-center space-y-3 lg:flex-row lg:space-x-4 lg:space-y-0">
-                            {!shouldHideLoginBtn && (
-                                <Button
-                                    label='Login'
-                                    type='transparent'
-                                    href='/login'
-                                    // onClick={handleOpenModal}
-                                />
-                            )}
-                            {!shouldHideSignupBtn && (
-                                <Button
-                                    label='Sign Up'
-                                    type='black'
-                                    href='/signup'
-                                />
-                            )}
-                        </div>
+                        {appState.isGuestUser ? <AuthBtns handleOpenModal={handleOpenModal} /> : <UserIcon />}
                     </div>
                 </div>
             </div>
