@@ -1,2 +1,2 @@
-import cs from './login';
+import cs from './terms';
 export default cs;

@@ -1,2 +1,5 @@
-import cs from './login';
-export default cs;
+import ComingSoon from "../components/ComingSoon";
+
+const Terms = () => <ComingSoon />;
+
+export default Terms;
