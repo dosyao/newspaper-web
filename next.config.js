@@ -12,5 +12,14 @@ module.exports = withPWA({
   pwa: {
     dest: "public",
     runtimeCaching
+  },
+  async redirects() {
+    return [
+      {
+        source: "/account",
+        destination: "/account/settings",
+        permanent: true
+      }
+    ];
   }
 });

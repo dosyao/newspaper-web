@@ -41,7 +41,7 @@ const SettingsComponent = () => {
     }
 
     return (
-        <div className="min-h-screen w-full bg-[#f5fafa] flex flex-col justify-between">
+        <div className="min-h-screen w-full bg-white flex flex-col justify-between">
             <div className="p-0 m-0 w-full">
                 <header className="max-w-7xl w-full mx-auto p-5 flex items-center">
                     <ChevronLeftIcon
