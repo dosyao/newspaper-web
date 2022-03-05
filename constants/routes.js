@@ -5,5 +5,7 @@ export const ABOUT = "/about";
 export const CONTACT = "/contact";
 export const TERMS = "/terms";
 export const PRIVACY = "/privacy";
+export const UPGRADE = "/upgrade";
+export const SETTINGS = "/account/settings";
 export const BLOG = "/blog";
 export const BLOG_POST = "/blog/[postSlug]";
