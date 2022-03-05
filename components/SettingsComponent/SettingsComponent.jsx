@@ -9,6 +9,7 @@ import Button from "../UI/Button";
 import { HOME, UPGRADE } from "../../constants/routes";
 import { USER_TOKEN } from "../../constants/common";
 import { setCookies } from "cookies-next";
+import Head from "next/head";
 
 const Loader = dynamic(() => import("../UI/Loader"));
 
@@ -42,6 +43,9 @@ const SettingsComponent = () => {
 
     return (
         <div className="min-h-screen w-full bg-white flex flex-col justify-between">
+            <Head>
+                <title>Settings | Newspaper</title>
+            </Head>
             <div className="p-0 m-0 w-full">
                 <header className="max-w-7xl w-full mx-auto p-5 flex items-center">
                     <ChevronLeftIcon
