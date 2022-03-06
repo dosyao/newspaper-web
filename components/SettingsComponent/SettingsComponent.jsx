@@ -60,7 +60,7 @@ const SettingsComponent = () => {
                     Settings
                 </h1>
                 <section className="m-5 bg-white p-5 rounded-2xl shadow-2xl max-w-xl lg:p-10 md:mx-auto md:my-10 relative min-h-[420px] h-full">
-                    {!updUser ? <Loader /> : <>
+                    {!updUser || !user ? <Loader /> : <>
                         <SettingsField
                             label='Account Name:'
                             value={updUser.username}

@@ -11,16 +11,16 @@ const Card = ({ card, priority }) => {
 
     return (
         <Link href={`/blog/${slug}`}>
-            <a className="flex flex-col max-w-sm w-full rounded-2xl bg-white shadow-2xl">
+            <a className="flex flex-col max-w-sm w-full rounded-2xl bg-white hover:shadow-2xl transition-shadow">
                 {image?.includes('http') && (
-                    <div className="w-full rounded-t-2xl">
+                    <div className="w-full rounded-t-2xl aspect-video relative">
                         <Image
                             className="rounded-t-2xl"
-                            width={384}
-                            height={216}
                             alt="blog card"
                             src={image}
-                            layout="responsive"
+                            layout="fill"
+                            objectFit="cover"
+                            objectPosition="50% 50%"
                             sizes="(max-width: 576px) calc(100vw - 40px), (max-width: 1024px) 50vw, 384px"
                             priority={priority}
                         />

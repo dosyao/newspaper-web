@@ -31,15 +31,15 @@ const PostComponent = () => {
                     <h1 className="mt-0 mb-5 text-2xl font-black lg:text-3xl lg:mb-7">
                         {title}
                     </h1>
-                    <div className="relative mb-6 rounded-xl mx-auto">
+                    <div className="relative mb-6 rounded-xl mx-auto aspect-video">
                         <Image
                             className="rounded-xl"
                             key={image}
                             src={image}
-                            width={632}
-                            height={356}
                             alt={title}
-                            layout='responsive'
+                            layout="fill"
+                            objectFit="cover"
+                            objectPosition="50% 50%"
                             sizes='(max-width: 576px) 100vw, (max-width: 1024px) 75vw, 632px'
                             priority
                         />

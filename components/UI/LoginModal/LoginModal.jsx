@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import Input from "../Input";
 import Button from "../Button";
 import { XIcon } from "@heroicons/react/solid";
-import { SIGNUP } from "../../../constants/routes";
+import { HOME, SIGNUP } from "../../../constants/routes";
 import Link from "next/link";
 import jwt from "jsonwebtoken";
 import { login } from "../../../api/session";
@@ -63,11 +63,12 @@ const LoginModal = ({ closeModal }) => {
             user,
             isGuestUser: false
         });
+        window.location.href = HOME;
     }
 
     return (
-        <form onSubmit={handleSubmit} className="fixed top-0 left-0 w-full h-full flex justify-center items-center">
-            <div ref={modalRef} className="shadow-2xl rounded-xl max-w-lg w-full bg-white flex flex-col px-7 py-10 relative">
+        <form onSubmit={handleSubmit} className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center z-50" style={{ backgroundColor: "rgba(0,0,0,0.3)" }}>
+            <div ref={modalRef} className="shadow-2xl rounded-xl max-w-lg w-full mx-5 lg:mx-auto bg-white flex flex-col px-7 py-10 relative">
                 <div className="flex justify-between w-full">
                     <h3 className="font-bold text-2xl mb-3 mx-auto">
                         Login
@@ -86,7 +87,7 @@ const LoginModal = ({ closeModal }) => {
                     />
                     <Link href={SIGNUP}>
                         <a className="text-sm text-black hover:text-slate-700">
-                            Already have account? Sign up now
+                            Do you have&apos;t account? Sign up now
                         </a>
                     </Link>
                 </div>
