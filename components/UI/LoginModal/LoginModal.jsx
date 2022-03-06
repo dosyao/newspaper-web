@@ -84,6 +84,7 @@ const LoginModal = ({ closeModal }) => {
                         label="Login"
                         onClick={handleSubmit}
                         disabled={disabled}
+                        isSubmit
                     />
                     <Link href={SIGNUP}>
                         <a className="text-sm text-black hover:text-slate-700">

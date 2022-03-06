@@ -6,7 +6,7 @@ const Link = dynamic(() => import("next/link"));
 
 const cn = classNames.bind(styles);
 
-const Button = ({ href, onClick: handleClick, label, type, className, disabled }) => {
+const Button = ({ href, onClick: handleClick, label, type, className, disabled, isSubmit }) => {
     const buttonStyles = cn({
         button: true,
         [`button_${type}`]: type,
@@ -28,7 +28,7 @@ const Button = ({ href, onClick: handleClick, label, type, className, disabled }
     );
 
     return (
-        <button className={buttonStyles} onClick={onClick}>
+        <button type={isSubmit ? "submit" : "button"} className={buttonStyles} onClick={onClick}>
             {label}
         </button>
     );

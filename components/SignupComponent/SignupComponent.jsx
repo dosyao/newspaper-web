@@ -112,6 +112,7 @@ const SignupComponent = () => {
                             label={step === 3 ? "Done" : "Select"}
                             onClick={handleSubmit}
                             disabled={shouldDisableBtn}
+                            isSubmit={step === 3}
                         />
                         {step > 1 && (
                             <Button
