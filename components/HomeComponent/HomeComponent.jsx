@@ -5,6 +5,7 @@ import MainLayout from "../../layouts/MainLayout";
 import useHome from "../../hooks/useHome";
 
 const Card = dynamic(() => import("../UI/Card"));
+const Vacancies = dynamic(() => import("./Vacancies"));
 
 const HomeComponent = () => {
     const { posts } = useHome();
@@ -51,15 +52,7 @@ const HomeComponent = () => {
                     </p>
                 </div>
             </section>
-            {/* TODO: add best vacancies */}
-            {/* <section className={styles.cardsSection}>
-                <h2 className={styles.label}>
-                    The Best Vacancies
-                </h2>
-                <div className={styles.cards}>
-                    {cards.map(card => <Card key={card.title} card={card} />)}
-                </div>
-            </section> */}
+            <Vacancies />
             <section className={styles.blackSection}>
                 <div className={styles.blackWrapper}>
                     <h2 className={styles.label}>

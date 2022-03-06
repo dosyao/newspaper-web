@@ -1,0 +1,114 @@
+{
+    "page": 1,
+    "totalPages": 1,
+    "total": 3,
+    "vacancies": [{
+        "id": "123",
+        "userId": "123",
+        "title": "Front-end Engineer",
+        "company": "Rozetka",
+        "salary": 3500,
+        "city": "Kyiv",
+        "createdDateTime": "...",
+        "requirements": [
+            "Intermediate or higher level of English",
+            "Bachelor’s degree in computer science, information science, or similar. Or relevant work experience.",
+            "At minimum three full year of experience as a Node.js and React developer.",
+            "Extensive knowledge of JavaScript, TypeScript, web stacks, Next, Express.",
+            "Knowledge of front-end technologies such as HTML5 and CSS3.",
+            "Experience with MySQL or Postgres",
+            "Superb interpersonal, communication, and collaboration skills.",
+            "Exceptional analytical and problem-solving aptitude.",
+            "Great organizational and time management skills.",
+            "Knowledge of GraphQL and Hasure is a plus"
+        ],
+        "conditions": [
+            "Great compensation.",
+            "Office in Uzhhorod, Ukraine.",
+            "Remote work and flexible hours."
+        ],
+        "responsibilities": [
+            "Architecting and maintaining all front-end components.",
+            "Ensuring optimal performance of the central database and responsiveness to front-end requests",
+            "Collaborating with front-end developers on the integration of elements.",
+            "Designing customer-facing UI and back-end services for various business processes.",
+            "Developing high-performance applications by writing testable, reusable, and efficient code.",
+            "Implementing effective security protocols, data protection measures, and storage solutions.",
+            "Running diagnostic tests, repairing defects, and providing technical support.",
+            "Documenting Node.js processes, as well as preparing reports.",
+            "Recommending and implementing improvements to processes and technologies."
+        ]
+    }, {
+        "id": "456",
+        "userId": "123",
+        "title": "Front-end Engineer",
+        "company": "Rozetka",
+        "salary": 3500,
+        "city": "Kyiv",
+        "createdDateTime": "...",
+        "requirements": [
+            "Intermediate or higher level of English",
+            "Bachelor’s degree in computer science, information science, or similar. Or relevant work experience.",
+            "At minimum three full year of experience as a Node.js and React developer.",
+            "Extensive knowledge of JavaScript, TypeScript, web stacks, Next, Express.",
+            "Knowledge of front-end technologies such as HTML5 and CSS3.",
+            "Experience with MySQL or Postgres",
+            "Superb interpersonal, communication, and collaboration skills.",
+            "Exceptional analytical and problem-solving aptitude.",
+            "Great organizational and time management skills.",
+            "Knowledge of GraphQL and Hasure is a plus"
+        ],
+        "conditions": [
+            "Great compensation.",
+            "Office in Uzhhorod, Ukraine.",
+            "Remote work and flexible hours."
+        ],
+        "responsibilities": [
+            "Architecting and maintaining all front-end components.",
+            "Ensuring optimal performance of the central database and responsiveness to front-end requests",
+            "Collaborating with front-end developers on the integration of elements.",
+            "Designing customer-facing UI and back-end services for various business processes.",
+            "Developing high-performance applications by writing testable, reusable, and efficient code.",
+            "Implementing effective security protocols, data protection measures, and storage solutions.",
+            "Running diagnostic tests, repairing defects, and providing technical support.",
+            "Documenting Node.js processes, as well as preparing reports.",
+            "Recommending and implementing improvements to processes and technologies."
+        ]
+    }, {
+        "id": "789",
+        "userId": "123",
+        "title": "Front-end Engineer",
+        "company": "Rozetka",
+        "salary": 3500,
+        "city": "Kyiv",
+        "createdDateTime": "...",
+        "requirements": [
+            "Intermediate or higher level of English",
+            "Bachelor’s degree in computer science, information science, or similar. Or relevant work experience.",
+            "At minimum three full year of experience as a Node.js and React developer.",
+            "Extensive knowledge of JavaScript, TypeScript, web stacks, Next, Express.",
+            "Knowledge of front-end technologies such as HTML5 and CSS3.",
+            "Experience with MySQL or Postgres",
+            "Superb interpersonal, communication, and collaboration skills.",
+            "Exceptional analytical and problem-solving aptitude.",
+            "Great organizational and time management skills.",
+            "Knowledge of GraphQL and Hasure is a plus"
+        ],
+        "conditions": [
+            "Great compensation.",
+            "Office in Uzhhorod, Ukraine.",
+            "Remote work and flexible hours."
+        ],
+        "responsibilities": [
+            "Architecting and maintaining all front-end components.",
+            "Ensuring optimal performance of the central database and responsiveness to front-end requests",
+            "Collaborating with front-end developers on the integration of elements.",
+            "Designing customer-facing UI and back-end services for various business processes.",
+            "Developing high-performance applications by writing testable, reusable, and efficient code.",
+            "Implementing effective security protocols, data protection measures, and storage solutions.",
+            "Running diagnostic tests, repairing defects, and providing technical support.",
+            "Documenting Node.js processes, as well as preparing reports.",
+            "Recommending and implementing improvements to processes and technologies."
+        ]
+    }]
+}

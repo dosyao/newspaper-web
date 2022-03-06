@@ -9,3 +9,5 @@ export const UPGRADE = "/upgrade";
 export const SETTINGS = "/account/settings";
 export const BLOG = "/blog";
 export const BLOG_POST = "/blog/[postSlug]";
+export const VACANCIES = "/vacancies";
+export const VACANCY = "/vacancies/[vacancyId]";

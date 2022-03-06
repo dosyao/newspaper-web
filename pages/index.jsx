@@ -12,11 +12,11 @@ const HomePage = ({ homeState }) => (
 
 export const getStaticProps = async () => {
     const postsData = await loadPosts(1, 3);
+    const resp = (await import("../public/data/vacancies.json"))?.default;
 
     const homeState = {
         posts: postsData?.posts ?? null,
-        advertisements: null,
-        vacancies: null
+        vacancies: resp.vacancies
     };
 
     return {
