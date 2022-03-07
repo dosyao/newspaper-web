@@ -11,3 +11,4 @@ export const BLOG = "/blog";
 export const BLOG_POST = "/blog/[postSlug]";
 export const VACANCIES = "/vacancies";
 export const VACANCY = "/vacancies/[vacancyId]";
+export const ACCOUNT_VACANCIES = "/account/vacancies";

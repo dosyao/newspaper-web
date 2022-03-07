@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Accordion, AccordionItem } from "react-sanfona";
@@ -34,6 +35,9 @@ const VacanciesList = () => {
             className="max-w-7xl w-full mx-auto"
             style={{ minHeight: "calc(100vh - 78px - 112px)" }}
         >
+            <Head>
+                <title>Vacancies | Newspaper</title>
+            </Head>
             <Accordion className="max-w-xl mx-auto my-5 md:my-10" allowMultiple>
                 {vacancies.map(vacancy => (
                     <AccordionItem

@@ -4,6 +4,7 @@ import useVacancies from "../../hooks/useVacancies";
 import dynamic from "next/dynamic";
 import useApp from "../../hooks/useApp";
 import { SIGNUP } from "../../constants/routes";
+import Head from "next/head";
 
 const Button = dynamic(() => import("../UI/Button"));
 
@@ -27,6 +28,9 @@ const Vacancy = () => {
             className="p-5 md:p-10 w-full mx-auto"
             style={{ minHeight: "calc(100vh - 78px - 112px)" }}
         >
+            <Head>
+                <title>{vacancy.title} | Newspaper</title>
+            </Head>
             <div className="max-w-xl w-full rounded-2xl shadow-2xl p-5 md:p-10 mx-auto space-y-3">
                 <span
                     className="cursor-pointer font-bold text-gray-500 hover:text-cyan-500 flex items-center transition-all"

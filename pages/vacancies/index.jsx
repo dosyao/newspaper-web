@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import { loadVacancies, loadVacancyById } from "../../api/vacancies";
 import VacanciesComponent from "../../components/VacanciesComponent";
 
 export const VacanciesState = createContext();
@@ -11,21 +12,21 @@ const Vacancies = ({ vacanciesStore }) => (
 
 export const getStaticProps = async ({ params }) => {
     const vacancyId = params?.vacancyId;
-    const resp = (await import("../../public/data/vacancies.json"))?.default;
-    const vacancy = resp.vacancies.find(el => el.id === vacancyId);
+    const resp = !vacancyId ? await loadVacancies(1, 10) : null;
+    const vacancy = vacancyId ? await loadVacancyById(vacancyId) : null;
 
-    if (!resp || vacancyId && !vacancy) {
+    if (!resp && !vacancyId || vacancyId && !vacancy) {
         return {
             notFound: true
         }
     }
 
     const vacanciesStore = {
-        vacancies: resp.vacancies,
+        vacancies: resp?.vacancies ?? null,
         vacancy: vacancy ?? null,
-        page: resp.page,
-        total: resp.total,
-        totalPages: resp.totalPages
+        page: resp?.page ?? null,
+        total: resp?.total ?? null,
+        totalPages: resp?.total_pages ?? null
     };
 
     return {

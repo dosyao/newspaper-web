@@ -5,11 +5,13 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { accountActions } from "../../constants/common";
 import VacanciesList from "./VacanciesList";
+import VacancyForm from "./VacancyForm";
 
 const Footer = dynamic(() => import("../UI/Footer"));
 
 const AccountVacancies = ({ vacancies }) => {
     const [action, setAction] = useState(accountActions.LIST);
+    const [edit, setEdit] = useState(null);
     const router = useRouter();
 
     const handleGoBack = () => {
@@ -19,9 +21,11 @@ const AccountVacancies = ({ vacancies }) => {
     const renderPage = () => {
         switch (action) {
             case accountActions.LIST:
-                return <VacanciesList vacancies={vacancies} />;
+                return <VacanciesList vacancies={vacancies} setAction={setAction} setEdit={setEdit} />;
+            case accountActions.ADD:
+                return <VacancyForm />;
             case accountActions.EDIT:
-                return <div></div>;
+                return <VacancyForm vacancy={edit} setEdit={setEdit} />;
             case accountActions.REVIEWS:
                 return <div></div>;
             default:

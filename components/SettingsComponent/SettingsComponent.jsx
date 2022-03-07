@@ -6,7 +6,7 @@ import Footer from "../../components/UI/Footer";
 import useApp from "../../hooks/useApp";
 import SettingsField from "./SettingsField";
 import Button from "../UI/Button";
-import { HOME, UPGRADE } from "../../constants/routes";
+import { ACCOUNT_VACANCIES, HOME, UPGRADE } from "../../constants/routes";
 import { USER_TOKEN } from "../../constants/common";
 import { setCookies } from "cookies-next";
 import Head from "next/head";
@@ -88,6 +88,14 @@ const SettingsComponent = () => {
                                     label="Save"
                                     className="border-2 border-cyan-500 text-cyan-500 transition-all hover:text-white hover:bg-cyan-500"
                                     onClick={handleSave}
+                                />
+                            )}
+                            {user.type === "company" && (
+                                <Button
+                                    type="white"
+                                    label="My Vacancies"
+                                    className="border-2 border-black text-black transition-all hover:text-white hover:bg-black"
+                                    href={ACCOUNT_VACANCIES}
                                 />
                             )}
                             <Button

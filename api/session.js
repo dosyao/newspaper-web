@@ -1,12 +1,6 @@
 import axios from "axios";
 
-import { API_PREFIX } from "../constants/common";
-
-const headers = {
-    'Accept': '*/*',
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-};
+import { API_PREFIX, headers } from "../constants/common";
 
 export const signup = async ({ username, email, password, type }) => {
     try {
