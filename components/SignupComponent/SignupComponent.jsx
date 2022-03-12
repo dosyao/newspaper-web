@@ -7,14 +7,17 @@ import Stepper from "./Stepper";
 import { signup } from "../../api/session";
 import ChooseType from "./ChooseType";
 import { setCookies } from "cookies-next";
-import { USER_TOKEN } from "../../constants/common";
-import { HOME } from "../../constants/routes";
+import { USER_TOKEN, STRIPE_KEY, WEB_BASE_URL } from "../../constants/common";
+import { HOME, UPGRADE } from "../../constants/routes";
 import { useEffect } from "react";
+import { subscribe } from "../../api/subscription";
+import useSignup from "../../hooks/useSignup";
 
 const ChooseSubscription = dynamic(() => import("./ChooseSubscription"));
 const RegisterFields = dynamic(() => import("./RegisterFields"));
 
 const SignupComponent = () => {
+    const { price } = useSignup();
     const [step, setStep] = useState(1);
     const [signupState, setSignupState] = useState({
         username: '',
@@ -67,14 +70,31 @@ const SignupComponent = () => {
 
         setCookies(USER_TOKEN, token);
         
-        window.location.href = HOME;
+        if (signupState.subscription === "free") {
+            window.location.href = HOME;
+            return;
+        }
+
+        const loadStripe = (await import("@stripe/stripe-js")).loadStripe;
+        const stripe = await loadStripe(STRIPE_KEY);
+
+        const session = await subscribe({
+            email: signupState.email,
+            priceId: price.id,
+            successUrl: `${WEB_BASE_URL}/${UPGRADE}?price_id=${price.id}&payment=success`,
+            failureUrl: `${WEB_BASE_URL}/${UPGRADE}`
+        });
+
+        await stripe.redirectToCheckout({
+            sessionId: session.sessionId
+        });
     }
 
     const handleBack = () => {
         switch (step) {
             case 2:
                 setStep(step - 1);
-                setSignupState({ ...signupState, subscription: '' });
+                setSignupState({ ...signupState, subscription: "" });
                 break;
             case 3:
                 setStep(step - 1);

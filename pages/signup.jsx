@@ -1,21 +1,29 @@
+import { createContext } from "react";
+import { loadPrice, loadProduct } from "../api/subscription";
 import SignupComponent from "../components/SignupComponent";
-import { USER_TOKEN } from "../constants/common";
-import { HOME } from "../constants/routes";
 
-const SignUp = () => <SignupComponent />;
+export const SignUpStore = createContext();
 
-export const getServerSideProps = async ({ req, res }) => {
-    const token = req.cookies[USER_TOKEN];
+const SignUp = ({ signupStore }) => (
+    <SignUpStore.Provider value={signupStore}>
+        <SignupComponent />
+    </SignUpStore.Provider>
+);
 
-    if (token) {
-        res.writeHead(302, {
-            Location: HOME
-        });
-        res.end();
+export const getStaticProps = async () => {
+    const product = await loadProduct();
+    const price = await loadPrice();
+
+    const signupStore = {
+        product,
+        price
     }
 
     return {
-        props: { }
+        revalidate: 200,
+        props: {
+            signupStore
+        }
     }
 }
 
