@@ -2,13 +2,13 @@ import axios from "axios";
 
 import { API_PREFIX, headers, STRIPE_API_PREFIX, STRIPE_SECRET } from "../constants/common";
 
-export const subscribe = async ({ successUrl, failureUrl, priceId, email }) => {
+export const stripeSession = async ({ successUrl, failureUrl, priceId, email }) => {
     try {
         const response = await axios.post(`${API_PREFIX}/payment/create`, {
             priceId, successUrl, failureUrl, customerEmail: email
         }, { headers });
 
-        return response.data.sessionId;
+        return response.data;
     } catch (err) {
         console.error(err);
         return null;

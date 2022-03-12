@@ -10,7 +10,7 @@ import { setCookies } from "cookies-next";
 import { USER_TOKEN, STRIPE_KEY, WEB_BASE_URL } from "../../constants/common";
 import { HOME, UPGRADE } from "../../constants/routes";
 import { useEffect } from "react";
-import { subscribe } from "../../api/subscription";
+import { stripeSession } from "../../api/subscription";
 import useSignup from "../../hooks/useSignup";
 
 const ChooseSubscription = dynamic(() => import("./ChooseSubscription"));
@@ -78,7 +78,7 @@ const SignupComponent = () => {
         const loadStripe = (await import("@stripe/stripe-js")).loadStripe;
         const stripe = await loadStripe(STRIPE_KEY);
 
-        const session = await subscribe({
+        const session = await stripeSession({
             email: signupState.email,
             priceId: price.id,
             successUrl: `${WEB_BASE_URL}/${UPGRADE}?price_id=${price.id}&payment=success`,
