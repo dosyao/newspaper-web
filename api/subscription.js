@@ -36,3 +36,16 @@ export const loadPrice = async () => {
         return null;
     }
 }
+
+export const subscribe = async ({ sessionId, userId }) => {
+    try {
+        const response = await axios.post(`${API_PREFIX}/payment/subscribe`, {
+            user_id: userId,
+            session_id: sessionId
+        }, { headers });
+
+        return response.data.is_success;
+    } catch (err) {
+        return null;
+    }
+}

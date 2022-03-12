@@ -81,7 +81,7 @@ const SignupComponent = () => {
         const session = await stripeSession({
             email: signupState.email,
             priceId: price.id,
-            successUrl: `${WEB_BASE_URL}/${UPGRADE}?price_id=${price.id}&payment=success`,
+            successUrl: `${WEB_BASE_URL}/${UPGRADE}?session_id={SESSION_ID}&payment=success`,
             failureUrl: `${WEB_BASE_URL}/${UPGRADE}`
         });
 
