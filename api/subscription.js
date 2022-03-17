@@ -4,10 +4,10 @@ import { API_PREFIX, headers, STRIPE_API_PREFIX, STRIPE_SECRET } from "../consta
 
 export const stripeSession = async ({ successUrl, failureUrl, priceId, email }) => {
     try {
-        const response = await axios.post(`${API_PREFIX}/payment/create`, {
+        const response = await axios.post(`${API_PREFIX}/subscription/payment`, {
             priceId, successUrl, failureUrl, customerEmail: email
-        }, { headers });
-
+        }   );
+        console.log(response);
         return response.data;
     } catch (err) {
         console.error(err);
@@ -39,7 +39,7 @@ export const loadPrice = async () => {
 
 export const subscribe = async ({ sessionId, userId }) => {
     try {
-        const response = await axios.post(`${API_PREFIX}/payment/subscribe`, {
+        const response = await axios.post(`${API_PREFIX}/subscription/subscribe`, {
             user_id: userId,
             session_id: sessionId
         }, { headers });

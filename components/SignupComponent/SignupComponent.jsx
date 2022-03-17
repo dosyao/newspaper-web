@@ -76,13 +76,14 @@ const SignupComponent = () => {
         }
 
         const loadStripe = (await import("@stripe/stripe-js")).loadStripe;
-        const stripe = await loadStripe(STRIPE_KEY);
+        const stripePromise = loadStripe(STRIPE_KEY);
+        const stripe = await stripePromise;
 
         const session = await stripeSession({
             email: signupState.email,
             priceId: price.id,
-            successUrl: `${WEB_BASE_URL}/${UPGRADE}?session_id={SESSION_ID}&payment=success`,
-            failureUrl: `${WEB_BASE_URL}/${UPGRADE}`
+            successUrl: `${WEB_BASE_URL}${UPGRADE}?session_id={CHECKOUT_SESSION_ID}`,
+            failureUrl: `${WEB_BASE_URL}${UPGRADE}`
         });
 
         await stripe.redirectToCheckout({

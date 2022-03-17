@@ -9,15 +9,17 @@ export const getServerSideProps = async ({ req, res, query }) => {
     const sessionId = query.session_id;
     const payment = query.payment;
 
-    if (token && sessionId && payment === "success") {
-        const userId = await jwt(token, JWT_SECRET).id;
+    if (token && sessionId) {
+        const userId = await jwt.decode(token, JWT_SECRET).id;
         await subscribe({ sessionId, userId });
     }
 
-    res.writeHead(302, {
-        Location: UPGRADE
-    });
-    res.end();
+    if (sessionId) {
+        res.writeHead(302, {
+            Location: UPGRADE
+        });
+        res.end();
+    }
 
     return {
         props: { }
