@@ -81,8 +81,8 @@ const SignupComponent = () => {
         const session = await subscribe({
             email: signupState.email,
             priceId: price.id,
-            successUrl: `${WEB_BASE_URL}/${UPGRADE}?price_id=${price.id}&payment=success`,
-            failureUrl: `${WEB_BASE_URL}/${UPGRADE}`
+            successUrl: `${WEB_BASE_URL}${UPGRADE}?price_id=${price.id}&payment=success`,
+            failureUrl: `${WEB_BASE_URL}${UPGRADE}`
         });
 
         await stripe.redirectToCheckout({
