@@ -6,8 +6,8 @@ export const stripeSession = async ({ successUrl, failureUrl, priceId, email }) 
     try {
         const response = await axios.post(`${API_PREFIX}/subscription/payment`, {
             priceId, successUrl, failureUrl, customerEmail: email
-        }   );
-        console.log(response);
+        }, { headers });
+
         return response.data;
     } catch (err) {
         console.error(err);
