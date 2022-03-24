@@ -10,6 +10,7 @@ import styles from "./Upgrade.module.css";
 import { STRIPE_KEY, WEB_BASE_URL } from '../../constants/common';
 import useUpgrade from '../../hooks/useUpgrade';
 import { stripeSession } from '../../api/subscription';
+import Head from 'next/head';
 
 const UpgradeComponent = ({ subscription }) => {
     const router = useRouter();
@@ -53,6 +54,11 @@ const UpgradeComponent = ({ subscription }) => {
 
     return (
         <MainLayout>
+            <Head>
+                <title>Upgrade your subscription | Newspaper</title>
+                <meta name="description" content="All the news for the last day. The latest news online, science, health, politics, astrology and sports on the Newspaper Web" />
+                <meta name="keywords" content="news, news Newspaper, world news, latest news, news of the day, world news today" />
+            </Head>
             <section className="w-full h-auto" style={{ minHeight: 'calc(100vh - 77px - 112px)' }}>
                 <div className="max-w-3xl w-full mx-auto p-5">
                     <h1 className={styles.title}>
