@@ -2,7 +2,7 @@ import Input from "../UI/Input";
 
 const RegisterFields = ({ state, isError }) => {
     const [signupState, setSingupState] = state;
-    console.log(isError);
+
     return (
         <div className="flex flex-col space-y-5 max-w-xs mx-auto pt-5 lg:pt-10">
             <Input

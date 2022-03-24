@@ -39,13 +39,43 @@ export const loadPrice = async () => {
 
 export const subscribe = async ({ sessionId, userId }) => {
     try {
-        const response = await axios.post(`${API_PREFIX}/subscription/subscribe`, {
-            user_id: userId,
-            session_id: sessionId
+        const response = await axios.post(`${API_PREFIX}/subscription/add`, {
+            userId,
+            sessionId
         }, { headers });
 
-        return response.data.is_success;
+        return response.data;
     } catch (err) {
+        console.error(err);
+        return null;
+    }
+}
+
+export const loadSubscription = async userId => {
+    try {
+        const response = await axios.get(`${API_PREFIX}/subscription/user/${userId}`);
+
+        if (!response.data) return null;
+
+        if ((new Date(response.data.createdDateTime).getDate() + 30) < new Date().getDate()) {
+            await deleteSubscription(response.data.id);
+            return null;
+        }
+
+        return response.data;
+    } catch (err) {
+        console.error(err);
+        return null;
+    }
+}
+
+export const deleteSubscription = async id => {
+    try {
+        const response = await axios.delete(`${API_PREFIX}/subscription/delete/${id}`, null, { headers });
+
+        return response.data;
+    } catch (err) {
+        console.error(err);
         return null;
     }
 }

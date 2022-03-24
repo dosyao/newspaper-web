@@ -16,7 +16,8 @@ const App = ({ Component, pageProps }) => {
     const [cookieRead, setCookieRead] = useState(null);
     const appState = useState({
         isGuestUser: true,
-        user: null
+        user: null,
+        subscription: null
     });
 
     useEffect(() => {
