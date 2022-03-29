@@ -21,32 +21,35 @@ const VacancyForm = ({ vacancy, setEdit }) => {
         return (event) => handler(event.currentTarget.value);
     }
 
-    const handleCreateOrUpdate = async (handler) => {
+    const handleCreateOrUpdate = async () => {
+        const handler = vacancy ? updateVacancy : createVacancy;
+
         try {
-            if (!vacancy) {
-                const response = await handler({
-                    userId: user.id,
-                    company: user.username,
-                    title,
-                    salary,
-                    city,
-                    requirements: requirements.map(el => el.trim()).filter(el => !!el),
-                    conditions: conditions.map(el => el.trim()).filter(el => !!el),
-                    responsibilities: responsibilities.map(el => el.trim()).filter(el => !!el)
-                });
-        
-                if (!response) return;
-            } else {
-                setEdit(null);
-            }
+            const response = await handler({
+                userId: user.id,
+                company: user.username,
+                title,
+                salary,
+                city,
+                requirements: requirements.map(el => el.trim()).filter(el => !!el),
+                conditions: conditions.map(el => el.trim()).filter(el => !!el),
+                responsibilities: responsibilities.map(el => el.trim()).filter(el => !!el)
+            });
+    
+            if (!response) return;
         } finally {
-            router.push(ACCOUNT_VACANCIES);
+            window.location.reload();
         }
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await handleCreateOrUpdate();
     }
 
     return (
         <section className="m-5 bg-white p-5 rounded-2xl shadow-2xl max-w-xl lg:p-10 md:mx-auto md:my-10 relative min-h-[420px] flex flex-col justify-between">
-            <form className="mx-auto my-5 md:my-10 space-y-3">
+            <form onSubmit={handleSubmit} className="mx-auto my-5 md:my-10 space-y-3">
                 <Input
                     state={{
                         value: title, 
@@ -122,7 +125,6 @@ const VacancyForm = ({ vacancy, setEdit }) => {
                 <Button
                     type="black"
                     label={vacancy ? "Edit" : "Create"}
-                    onClick={handleCreateOrUpdate.bind(null, vacancy ? updateVacancy : createVacancy)}
                     isSubmit
                 />
             </form>
@@ -130,4 +132,4 @@ const VacancyForm = ({ vacancy, setEdit }) => {
     );
 }
 
-export default VacancyForm
+export default VacancyForm;
