@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { API_PREFIX, SPLITER } from "../constants/common";
+import { API_PREFIX, SPLITER, headers } from "../constants/common";
 
 export const loadVacancies = async (page, perPage) => {
     try {
@@ -37,5 +37,47 @@ export const loadVacancyById = async (id) => {
         return mutatedVacancy;
     } catch {
         return null;
+    }
+}
+
+export const createVacancy = async (vacancy) => {
+    try {
+        vacancy.requirements = vacancy.requirements.join(SPLITER);
+        vacancy.conditions = vacancy.conditions.join(SPLITER);
+        vacancy.responsibilities = vacancy.responsibilities.join(SPLITER);
+        const response = await axios.post(`${API_PREFIX}/vacancies/add`, vacancy, { headers });
+
+        if (response?.status !== 200) return null;
+
+        return response.data;
+    } catch (err) {
+        console.error(err);
+        return null;
+    }
+}
+
+export const updateVacancy = async (vacancy) => {
+    try {
+        vacancy.requirements = vacancy.requirements.join(SPLITER);
+        vacancy.conditions = vacancy.conditions.join(SPLITER);
+        vacancy.responsibilities = vacancy.responsibilities.join(SPLITER);
+        const response = await axios.post(`${API_PREFIX}/vacancies/edit`, vacancy, { headers });
+
+        if (response?.status !== 200) return null;
+
+        return response.data;
+    } catch (err) {
+        console.error(err);
+        return null;
+    }
+}
+
+export const deleteVacancy = async (id) => {
+    try {
+        const response = await axios.delete(`${API_PREFIX}/vacancies/delete`, { id }, { headers });
+        return response.status === 200;
+    } catch (err) {
+        console.error(err);
+        return false;
     }
 }

@@ -1,3 +1,4 @@
+import { deleteVacancy } from "../../api/vacancies";
 import { accountActions } from "../../constants/common";
 import Button from "../UI/Button";
 
@@ -6,6 +7,12 @@ const VacanciesList = ({ vacancies, setAction, setEdit }) => {
         return () => {
             setEdit(vacancy);
             setAction(accountActions.EDIT);
+        }
+    }
+
+    const handleDelete = (id) => {
+        return async () => {
+            await deleteVacancy(id);
         }
     }
 
@@ -42,7 +49,10 @@ const VacanciesList = ({ vacancies, setAction, setEdit }) => {
                                     Edit
                                 </a>
                                 <span className="text-gray-500">|</span>
-                                <a className="ml-2 text-red-500 hover:underline cursor-pointer">
+                                <a
+                                    className="ml-2 text-red-500 hover:underline cursor-pointer"
+                                    onClick={handleDelete(vacancy.id)}
+                                >
                                     Delete
                                 </a>
                             </li>

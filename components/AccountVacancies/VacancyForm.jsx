@@ -1,6 +1,6 @@
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useState } from "react";
-import { createVacancy } from "../../api/account";
+import { createVacancy, updateVacancy } from "../../api/vacancies";
 import { ACCOUNT_VACANCIES } from "../../constants/routes";
 import useApp from "../../hooks/useApp";
 import Button from "../UI/Button";
@@ -21,25 +21,27 @@ const VacancyForm = ({ vacancy, setEdit }) => {
         return (event) => handler(event.currentTarget.value);
     }
 
-    const handleCreate = async () => {
-        if (!vacancy) {
-            const response = await createVacancy({
-                userId: user.id,
-                company: user.username,
-                title,
-                salary,
-                city,
-                requirements: requirements.map(el => el.trim()).filter(el => !!el),
-                conditions: conditions.map(el => el.trim()).filter(el => !!el),
-                responsibilities: responsibilities.map(el => el.trim()).filter(el => !!el)
-            });
-    
-            if (!response) return;
-        } else {
-            setEdit(null);
+    const handleCreateOrUpdate = async (handler) => {
+        try {
+            if (!vacancy) {
+                const response = await handler({
+                    userId: user.id,
+                    company: user.username,
+                    title,
+                    salary,
+                    city,
+                    requirements: requirements.map(el => el.trim()).filter(el => !!el),
+                    conditions: conditions.map(el => el.trim()).filter(el => !!el),
+                    responsibilities: responsibilities.map(el => el.trim()).filter(el => !!el)
+                });
+        
+                if (!response) return;
+            } else {
+                setEdit(null);
+            }
+        } finally {
+            router.push(ACCOUNT_VACANCIES);
         }
-
-        router.push(ACCOUNT_VACANCIES);
     }
 
     return (
@@ -120,7 +122,7 @@ const VacancyForm = ({ vacancy, setEdit }) => {
                 <Button
                     type="black"
                     label={vacancy ? "Edit" : "Create"}
-                    onClick={handleCreate}
+                    onClick={handleCreateOrUpdate.bind(null, vacancy ? updateVacancy : createVacancy)}
                     isSubmit
                 />
             </form>

@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { accountActions } from "../../constants/common";
+import { SETTINGS } from "../../constants/routes";
 import VacanciesList from "./VacanciesList";
 import VacancyForm from "./VacancyForm";
 
@@ -15,7 +16,7 @@ const AccountVacancies = ({ vacancies }) => {
     const router = useRouter();
 
     const handleGoBack = () => {
-        router.back();
+        router.push(SETTINGS);
     }
 
     const renderPage = () => {

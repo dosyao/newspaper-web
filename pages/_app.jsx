@@ -4,7 +4,6 @@ import Head from "next/head";
 import "../styles/globals.css";
 import { useEffect, useState } from "react";
 import { getCookie, setCookies } from "cookies-next";
-import { USER_TOKEN } from "../constants/common";
 import { createContext } from "react";
 import { prepareApp } from "../utils";
 

@@ -1,22 +1,23 @@
 import { ChevronLeftIcon } from "@heroicons/react/solid";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { setCookies } from "cookies-next";
 import dynamic from "next/dynamic";
 import Footer from "../../components/UI/Footer";
 import useApp from "../../hooks/useApp";
 import SettingsField from "./SettingsField";
 import Button from "../UI/Button";
-import { ACCOUNT_VACANCIES, HOME, UPGRADE } from "../../constants/routes";
+import { ACCOUNT_VACANCIES, HOME, SETTINGS, UPGRADE } from "../../constants/routes";
 import { USER_TOKEN } from "../../constants/common";
-import { setCookies } from "cookies-next";
 import Head from "next/head";
+import { updateUsername } from "../../api/account";
 
 const Loader = dynamic(() => import("../UI/Loader"));
 
 const SettingsComponent = () => {
     const [appState, setAppState] = useApp();
     const router = useRouter();
-    const { user } = appState;
+    const { user, subscription } = appState;
     const [updUser, setUpdUser] = useState(user);
 
     useEffect(() => {
@@ -24,11 +25,22 @@ const SettingsComponent = () => {
     }, [user]);
 
     const handleGoBack = () => {
-        router.back();
+        router.push(SETTINGS);
     }
 
     const handleSave = async () => {
-        console.log(updUser);
+        const token = await updateUsername({
+            userId: updUser.id,
+            username: updUser.username
+        });
+
+        if (!token) {
+            window.location.reload();
+            return;
+        }
+
+        setCookies(USER_TOKEN, token);
+        window.location.reload();
     }
 
     const handleLogOut = () => {
@@ -98,12 +110,14 @@ const SettingsComponent = () => {
                                     href={ACCOUNT_VACANCIES}
                                 />
                             )}
-                            <Button
-                                type="white"
-                                label="Upgrade"
-                                className="border-2 border-cyan-500 text-cyan-500 transition-all hover:text-white hover:bg-cyan-500"
-                                href={UPGRADE}
-                            />
+                            {!subscription && (
+                                <Button
+                                    type="white"
+                                    label="Upgrade"
+                                    className="border-2 border-cyan-500 text-cyan-500 transition-all hover:text-white hover:bg-cyan-500"
+                                    href={UPGRADE}
+                                />
+                            )}
                             <Button
                                 type="white"
                                 label="Log Out"

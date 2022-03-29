@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import useVacancies from "../../hooks/useVacancies";
 import dynamic from "next/dynamic";
 import useApp from "../../hooks/useApp";
-import { SIGNUP } from "../../constants/routes";
+import { SIGNUP, VACANCIES } from "../../constants/routes";
 import Head from "next/head";
 
 const Button = dynamic(() => import("../UI/Button"));
@@ -15,8 +15,12 @@ const Vacancy = () => {
 
     if (!vacancy) return null;
 
-    const handleGoBack = () => {
-        router.back();
+    const handleGoBack = async () => {
+        try {
+            await router.back();
+        } catch {
+            await router.push(VACANCIES);
+        }
     }
 
     const handleSend = () => {

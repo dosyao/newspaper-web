@@ -21,16 +21,16 @@ export const getAccountVacancies = async (userId) => {
     }
 }
 
-export const createVacancy = async (vacancy) => {
+export const updateUsername = async ({ userId, username }) => {
     try {
-        vacancy.requirements = vacancy.requirements.join(SPLITER);
-        vacancy.conditions = vacancy.conditions.join(SPLITER);
-        vacancy.responsibilities = vacancy.responsibilities.join(SPLITER);
-        const response = await axios.post(`${API_PREFIX}/vacancies/add`, vacancy, { headers });
+        const response = await axios.post(`${API_PREFIX}/account/edit`, {
+            userid: userId,
+            username
+        }, { headers });
 
         if (response?.status !== 200) return null;
 
-        return response.data;
+        response.data.token;
     } catch (err) {
         console.error(err);
         return null;
