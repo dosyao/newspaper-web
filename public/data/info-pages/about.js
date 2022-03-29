@@ -19,6 +19,6 @@ export default {
 
         ### Have any questions?
 
-        Send an email to [vnahornyi@outlook.com](mailto:vnahornyi@outlook.com) and we will help you!
+        Send an email to [the.newspaper.web@gmail.com](mailto:the.newspaper.web@gmail.com) and we will help you!
     `
 };

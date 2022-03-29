@@ -28,7 +28,7 @@ export default function Document() {
                 <meta name='twitter:title' content='Newspaper' />
                 <meta name='twitter:description' content='Newspaper Web' />
                 <meta name='twitter:image' content='https://newspaper-web.vercel.app/icons/android-chrome-192x192.png' />
-                <meta name='twitter:creator' content='@VladyslavNahornyi' />
+                <meta name='twitter:creator' content='@NewspaperTeam' />
                 <meta property='og:type' content='website' />
                 <meta property='og:title' content='Newspaper' />
                 <meta property='og:description' content='Newspaper Web' />

@@ -7,7 +7,7 @@ export default {
 
         Do you have a question for us, or feedback about our web/app? Send us an email or contact us through social media.
 
-        Email address: [vnahornyi@outlook.com](mailto:vnahornyi@outlook.com)
+        Email address: [the.newspaper.web@gmail.com](mailto:the.newspaper.web@gmail.com)
 
         Newspaper is an international news company for the whole world.
     `
