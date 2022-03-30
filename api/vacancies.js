@@ -74,7 +74,7 @@ export const updateVacancy = async (vacancy) => {
 
 export const deleteVacancy = async (id) => {
     try {
-        const response = await axios.delete(`${API_PREFIX}/vacancies/delete`, { id }, { headers });
+        const response = await axios.delete(`${API_PREFIX}/vacancies/delete/${id}`, { headers });
         return response.status === 200;
     } catch (err) {
         console.error(err);

@@ -1,13 +1,10 @@
-import { useRouter } from "next/router";
 import { useState } from "react";
 import { createVacancy, updateVacancy } from "../../api/vacancies";
-import { ACCOUNT_VACANCIES } from "../../constants/routes";
 import useApp from "../../hooks/useApp";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
 
-const VacancyForm = ({ vacancy, setEdit }) => {
-    const router = useRouter();
+const VacancyForm = ({ vacancy }) => {
     const [{ user }] = useApp();
 
     const [city, setCity] = useState(vacancy?.city ?? "");
@@ -26,6 +23,7 @@ const VacancyForm = ({ vacancy, setEdit }) => {
 
         try {
             const response = await handler({
+                id: vacancy.id,
                 userId: user.id,
                 company: user.username,
                 title,
